@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+
+<!--		&lt;!&ndash; Reveal.js &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>-->
+<!--		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">-->
+<!--		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/theme/blood.css" id="theme">-->
+
+<!--		&lt;!&ndash; Native plugins of reveal.js &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/markdown/markdown.js"></script>-->
+
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/math/math.js"></script>-->
+
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/highlight.js"></script>-->
+<!--		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/plugin/highlight/zenburn.css">-->
+
+<!--		&lt;!&ndash; Menu plugin &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>-->
+<!--		<link href=" https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css " rel="stylesheet">-->
+
+<!--		&lt;!&ndash; Chalkboard plugin &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>-->
+<!--		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">-->
+
+<!--		&lt;!&ndash; Chart plugin &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>-->
+<!--		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>-->
+
+<!--		&lt;!&ndash; Custom controls plugin &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>-->
+<!--		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">-->
+
+<!--		&lt;!&ndash; Load content plugin &ndash;&gt;-->
+<!--		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>-->
+
+
+		<title>reveal.js</title>
+<!--		<input type="text" autocapitalize="off">-->
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="dist/custom.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
+		<!-- Theme used for syntax highlighted code -->
+<!--		<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		<!-- Theme used for syntax highlighted code -->
+	<!--		<link rel="stylesheet" href="plugin/highlight/atom-one-dark.css" />-->
+
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section style="background-image: url(figures/image1.jpeg); background-size: cover; background-position: center; width: 100%; height: 100%;">
+					<img class="stack fade-up" src="figures/image2.jpeg" style="position:fixed; top: 100px; left: 90px; width: 500px;" />
+					<img class="stack fade-up" src="figures/image3.png" style="position:fixed; top: 100px; right: 420px; width: 170px;" />
+					<img class="stack fade-up" src="figures/image4.png" style="position:fixed; top: 100px; right: 90px; width: 260px;" />
+					<img class="stack fade-up" src="figures/image5.png" style="position:fixed; top: 100px; right: 380px; width: 20.5px;" />
+					<img class="stack fade-up" src="figures/image6.gif" style="position:fixed; bottom: 63px; right: 90px; width: 500px;" />
+
+					<div class="vertical-line"></div>
+
+				</section>
+
+				<section data-auto-animate>
+					<!-- title slide -->
+					<h2>Learning from Ambiguous Demonstrations with Self-Explanation Guided Reinforcement Learning</h2>
+					<div>
+						<div>
+							<span>
+								<a href="https://yantianzha.github.io/">Yantian Zha</a>,</span>
+							<span>
+								<a href="https://guansuns.github.io/">Lin Guan</a>,</span>
+							<span>
+								<a href="https://rakaposhi.eas.asu.edu/">Subbarao Kambhampati</a>
+							</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-around;">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/yantian.png">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/lin.png">
+							<img style="height: 200px; width: auto;" src="figures/rao.jpg">
+						</div>
+					</div>
+					<h4>Arizona State University</h4>
+
+					<a href="https://github.com/YantianZha/SERLfD">
+						<p style="font-family: monospace;">https://github.com/YantianZha/SERLfD</p>
+					</a>
+
+					<img class="stack fade-up" src="figures/image10.jpeg" style="position:fixed; bottom: 0px; left: 0px; width: 150px;" />
+
+					<aside class="notes">
+						Today, I want to tell you about Scaling Up & Distilling Down, A Framework for Language-guided Robot
+						Skill Acquisition.
+						This is joint work with Pete Florence and my advisor, Shuran Song.
+					</aside>
+				</section>
+
+				<!-- motivate skill learning -->
+				<section>
+					<h2 class="toptitle">Robot Task Learning</h2>
+					<section data-auto-animate>
+						<!-- title slide -->
+<!--						<h1 class="toptitle">Robot Task Learning</h1>-->
+						<div>
+							<!-- clipport peract stuff -->
+							<div style="display: flex; justify-content: space-around;">
+								<img style="height: 200px; width: auto;" src="figures/image13.gif">
+								<img style="height: 200px; width: auto;" src="figures/image14.gif">
+								<img style="height: 200px; width: auto;" src="figures/image15.gif">
+							</div>
+							<div style="display: flex; justify-content: space-around;">
+								<img style="height: 200px; width: auto;" src="figures/image16.gif">
+								<img style="height: 200px; width: auto;" src="figures/image17.gif">
+								<img style="height: 200px; width: auto;" src="figures/image18.gif">
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h4><span style="color: dimgrey;">How to convey the</span> <b>task knowledge</b> <span style="color: dimgrey;">to robots? </span></h4>
+					</section>
+
+					<section data-auto-animate>
+						<h4><span style="color: dimgrey;">How to convey the <b>task knowledge</b> to robots? </span></h4>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <data></data></span> <b>(demonstrations)</b>
+					</section>
+
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Learning from Demonstrations <span style="color: deeppink;">(LfD)</span></h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Learning from Demonstrations <span style="color: deeppink;">(LfD)</span></h2>
+						<div style="width:100%; height:300px; display: flex; justify-content: center;">
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image20.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+										Affordance-Aware Imitation Learning</a>, <br>Zha et al., IROS, 2022
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image21.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/2105.06411">
+										Coarse-to-Fine Imitation Learning</a>, <br>Edward Johns, ICRA, 2021
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:500px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image22.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/1703.07326">
+										One-Shot Imitation Learning</a>, <br>Yu et al., RSS, 2018
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="position: fixed; top: 580px; left: 200px">✅ <span style="color: dimgrey;">Demonstrations provide a robust learning signal, <br>contributing to</span> sample-efficient learning</p>
+
+					</section>
+
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Learning from Demonstrations <span style="color: deeppink;">(LfD)</span></h2>-->
+<!--						<div style="width:960px;height:300px; position: fixed;top: 150px; left:150px; display:flex;flex-direction: row;">-->
+<!--							<div class="columnwrapper" style="width:800px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/image20.gif" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">-->
+<!--										Affordance-Aware Imitation Learning</a>, Zha et al., IROS, 2022-->
+<!--								</p>-->
+<!--							</div>-->
+<!--							<div class="columnwrapper" style="width:650px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/image21.gif" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://arxiv.org/abs/2105.06411">-->
+<!--										Coarse-to-Fine Imitation Learning</a>, Edward Johns, ICRA, 2021-->
+<!--								</p>-->
+<!--							</div>-->
+<!--							<div class="columnwrapper" style="width:400px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/image22.gif" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://arxiv.org/abs/1703.07326">-->
+<!--										One-Shot Imitation Learning</a>, Yu et al., RSS, 2018-->
+<!--								</p>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--						<p class="fragment" style="position: fixed; top: 550px; left: 200px">✅ <span style="color: dimgrey;">Demonstrations provide a robust learning signal, <br>contributing to</span> sample-efficient learning</p>-->
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<div class="columnwrapper"
+							style="z-index: 2; width:450px;height:200px;position: fixed; top: 190px; left:60px;">
+							<img class="noborder" height="110px" src="figures/image20.gif" />
+							<img class="noborder" height="110px" width="110" src="figures/image21.gif" />
+							<img class="noborder" height="110px" src="figures/image22.gif" />
+						</div>
+
+						<p style="position: fixed; z-index: 2; top: 360px; left: 100px; font-size: 20px;">✅ <span style="color: dimgrey;">Demonstrations provide a robust learning signal, <br>contributing to</span> sample-efficient learning</p>
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/image25.jpeg"
+							style="position:fixed; z-index: 1; top: 125px; left: 50px; width: 600px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/medium_up_arrow.svg"
+							style="position:fixed; z-index: 3; top: 320px; left: 600px; width: 50px;" />
+						<p class="fragment" data-fragment-index="1"
+						   style="position: fixed; top: 450px; left: 450px; width: 600px; font-size: 30px; text-align: left; color: dimgrey;">❌ <span style="color: dimgrey;">1) Distribution drifting issues; <br>2) Learners cannot outperform demonstrators; <br>3) High dataset collection costs</span></p>
+
+						<div style="position: fixed; right: 50px; top: 220px;">
+							<p class="fragment" data-fragment-index="3">
+								Reinforcement Learning
+							</p>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h2 class="toptitle">Robot Task Learning</h2>
+						<h4><span style="color: dimgrey;">How to convey the</span> <b>task knowledge</b> <span style="color: dimgrey;">to robots? </span></h4>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <b>(demonstrations)</b><br></span>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <data></data></span> <b>(rewards)</b>
+					</section>
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Reinforcement Learning <span style="color: deeppink;">(RL)</span></h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Reinforcement Learning <span style="color: deeppink;">(RL)</span></h2>
+						<div style="width:100%;height:300px; display:flex; justify-content: center;">
+
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image26.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+										SOLAR</a>, Zhang et al., 2020
+								</p>
+							</div>
+
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image27.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/2105.06411">
+										SAC-X</a>, Riedmiller, et al., ICML, 2018
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="position: fixed; top: 580px; left: 50px; text-align: left">✅ <span style="color: dimgrey;">Learners could outperform teachers; <br>More robust to distribution-drifting; No need of demonstrations</span></p>
+
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Reinforcement Learning <span style="color: deeppink;">(RL)</span></h2>-->
+<!--						<div-->
+<!--							style="width:960px;height:300px; position: fixed;top: 150px; left:150px; display:flex;flex-direction: row;">-->
+<!--							<div class="columnwrapper" style="width:800px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/image26.gif" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">-->
+<!--										SOLAR</a>, Zhang et al., 2020-->
+<!--								</p>-->
+<!--							</div>-->
+<!--							<div class="columnwrapper" style="width:650px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/image27.gif" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://arxiv.org/abs/2105.06411">-->
+<!--										SAC-X</a>, Riedmiller, et al., ICML, 2018-->
+<!--								</p>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--						<p class="fragment" style="position: fixed; top: 550px; left: 200px">✅ <span style="color: dimgrey;">Learners could outperform teachers; More robust to distribution-drifting; No need of demonstrations</span></p>-->
+
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<div class="columnwrapper"
+							style="z-index: 2; width:450px;height:200px;position: fixed; top: 175px; left:65px;">
+							<img class="noborder" height="150px" src="figures/image26.gif" />
+							<img class="noborder" height="150px" width="110" src="figures/image27.gif" />
+						</div>
+
+						<p style="position: fixed; z-index: 2; top: 390px; left: 80px; font-size: 20px; text-align: left">✅ <span style="color: dimgrey;">Learners could outperform teachers; <br>More robust to distribution-drifting; No need of demonstrations</span></p>
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/image25.jpeg"
+							style="position:fixed; z-index: 1; top: 125px; left: 50px; width: 650px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/medium_up_arrow.svg"
+							style="position:fixed; z-index: 3; top: 320px; left: 600px; width: 50px;" />
+						<p class="fragment" data-fragment-index="1"
+						   style="position: fixed; top: 450px; left: 450px; width: 600px; font-size: 30px; text-align: left; color: dimgrey;">❌ <span style="color: dimgrey;">Learning is not sample-efficient (especially in sparse-reward environments)</span></p>
+
+						<div style="position: fixed; right: 50px; top: 220px;">
+							<p class="fragment" data-fragment-index="3">
+								RL + LfD?
+							</p>
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2><span style="color: deeppink;">RL + LfD</span>: Reinforcement Learning from Demonstrations <span style="color: deeppink;">(RLfD)</span></h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle"><span style="color: deeppink;">RL + LfD</span>: Reinforcement Learning from Demonstrations <span style="color: deeppink;">(RLfD)</span></h2>
+						<div style="width:80%;height:300px; display:flex; justify-content: center;">
+
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image28.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+										DAPG</a>, Rajeswaran et al., RSS, 2018
+								</p>
+							</div>
+
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image29.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/2105.06411">
+										DDPGfD</a>, Vecerik, 2018
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="position: fixed; top: 580px; left: 50px; text-align: left">✅ <span style="color: dimgrey;">Combine the benefits of RL and LfD – making RL more sample-efficient</span></p>
+
+					</section>
+
+					<section data-auto-animate>
+						<div class="columnwrapper"
+							style="z-index: 2; width:450px;height:200px;position: fixed; top: 175px; left:65px;">
+							<img class="noborder" height="150px" src="figures/image28.gif" />
+							<img class="noborder" height="150px" width="110" src="figures/image29.png" />
+						</div>
+
+						<p style="position: fixed; z-index: 2; top: 390px; left: 80px; font-size: 20px; text-align: left">✅ <span style="color: dimgrey;">Combine the benefits of RL and LfD – making RL more sample-efficient</span></p>
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/image25.jpeg"
+							style="position:fixed; z-index: 1; top: 125px; left: 50px; width: 650px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/medium_up_arrow.svg"
+							style="position:fixed; z-index: 3; top: 320px; left: 600px; width: 50px;" />
+						<p class="fragment" data-fragment-index="1"
+							style="position: fixed; top: 450px; left: 450px; width: 600px; font-size: 30px; text-align: left; color: dimgrey;">❌ <span style="color: dimgrey;">Still inefficient to handle ambiguity in demonstrations and environments</span></p>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Insights from Human Cognition</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Insights from Human Cognition</h2>
+						<img src="figures/image30.jpeg" alt="Image" style="width: 60%;">
+					</section>
+
+					<section data-auto-animate style="position: relative;">
+						<div style="position: relative;">
+
+							<p class="fragment">
+								<h2 class="toptitle">Insights from Human Cognition</h2>
+								<img src="figures/image30.jpeg" alt="Image" style="width: 70%; opacity: 0.5;">
+
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 35%; left: 18%; height: 76px; z-index: 2;">
+								<span style="position: absolute; top: 47%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;">
+								Humans are aware and reflective of their own learning
+								</span>
+							</p>
+
+							<p class="fragment">
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 55%; left: 18%; height: 76px; z-index: 2;" data-fragment-index="2">
+								<span style="position: absolute; top: 70%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;" data-fragment-index="2">
+									Humans instinctively self-explain experiences, covering problem-solving, mistakes, and the actions and outcomes of others
+								</span>
+							</p>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Insights from Human Cognition</h2>
+
+						<div class="fragment">
+							<img src="figures/image31.gif" alt="Image" style="position: fixed; top: 400px; left: 70px; width: 20%;">
+							<img src="figures/support_1.svg" alt="Image" style="position: fixed; top: 450px; left: 135px; width: 6%;">
+
+<!--							<p style="position: absolute; top: 150px; left: 50px; width: 250px; font-size: 30px;">A Successful Case</p>-->
+<!--    						<hr style="position: absolute; top: 465px; left: 130px; width: 3%; border: none; border-top: 2px dashed whitesmoke; transform-origin: left center; transform: rotate(-45deg);">-->
+<!--					    	<hr style="position: absolute; top: 490px; left: 130px; width: 3%; border: none; border-top: 2px dashed whitesmoke; transform-origin: left center; transform: rotate(45deg);">-->
+<!--							<p style="position: absolute; top: 470px; left: 50px; width: 250px; font-size: 20px; color: whitesmoke"><strong>L1</strong></p>-->
+<!--							<p style="position: absolute; top: 550px; left: 50px; width: 250px; font-size: 20px; color: whitesmoke"><strong>L2</strong></p>-->
+						</div>
+
+						<div class="fragment">
+<!--							<hr style="position: absolute; top: 490px; left: 330px; width: 18%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(-45deg);">-->
+							<p style="position: absolute; top: 350px; left: 345px; width: 260px; font-size: 20px; color: deeppink"><strong>Self-Explanation:<br>object-location > object-color</strong></p>
+
+							<div style="position: relative;">
+								<hr style="position: absolute; top: 400px; left: 330px; width: 18%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(-45deg);">
+								<div style="position: absolute; top: 411px; left: 330px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(-45deg);">
+									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="fragment">
+							<img src="figures/image32.jpg" alt="Image" style="position: fixed; top: 200px; left: 510px; width: 20%;">
+							<img src="figures/support_1.svg" alt="Image" style="position: fixed; top: 277px; left: 585px; width: 4%;">
+						</div>
+
+
+						<div class="fragment">
+							<div style="position: relative;">
+								<hr style="position: absolute; top: 200px; left: 770px; width: 6%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">
+								<div style="position: absolute; top: 215px; left: 624px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(0deg);">
+									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>
+								</div>
+							</div>
+							<img src="figures/support_10.png" alt="Image" style="position: fixed; top: 235px; left: 840px; width: 12%;">
+						</div>
+
+						<div class="fragment">
+							<img src="figures/support_2.png" alt="Image" style="position: fixed; top: 235px; left: 940px; width: 27%;">
+						</div>
+
+						<div class="fragment">
+
+							<div style="position: relative;">
+								<hr style="position: absolute; top: 330px; left: 1100px; width: 9%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(90deg);">
+								<div style="position: absolute; top: 244px; left: 1107px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(90deg);">
+									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>
+								</div>
+							</div>
+
+							<p style="position: absolute; top: 460px; left: 980px; width: 255px; font-size: 20px; color: deeppink"><strong>Self-Explanation:<br>object-location < object-color</strong></p>
+						</div>
+
+						<div class="fragment">
+
+							<div style="position: relative;">
+								<hr style="position: absolute; top: 480px; left: 925px; width: 4.5%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">
+								<div style="position: absolute; top: 509px; left: 1148px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(180deg);">
+									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>
+								</div>
+							</div>
+
+							<img src="figures/support_3.svg" alt="Image" style="position: fixed; top: 445px; left: 680px; height: 29%; width: 18%;">
+						</div>
+
+						<div class="fragment">
+							<div style="position: relative;">
+								<hr style="position: absolute; top: 480px; left: 610px; width: 5%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">
+								<div style="position: absolute; top: 509px; left: 833px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(180deg);">
+									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>
+								</div>
+							</div>
+
+							<img src="figures/support_11.png" alt="Image" style="position: fixed; top: 515px; left: 490px; width: 11%;">
+						</div>
+					</section>
+
+				</section>
+				<section>
+					<section data-auto-animate>
+						<div class="fragment">
+							<h2 class="toptitle">Background Knowledge: Shared Vocabulary</h2>
+							<img class="stack fade-up" src="figures/image2.jpeg" style="position:fixed; top: 140px; left: 90px; width: 450px;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/image35.png" style="position:fixed; top: 200px; right: 450px; width: 18%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_6.svg" style="position:fixed; top: 220px; left: 320px; width: 30%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_7.svg" style="position:fixed; top: 110px; left: 330px; width: 50%;" />
+							<img class="stack fade-up" src="figures/support_8.svg" style="position:fixed; top: 255px; right: 200px; width: 10.2%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_9.svg" style="position:fixed; top: 207px; right: 329px; width: 3.55%;" />
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Self-Explanation for RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation for RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+
+							<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;">Robots take human advice</h4>
+
+
+<!--						<h3 style="position: absolute; top: 10px; left: 80px; width: 255px; font-size: 20px; color: black"><strong>Robots take human advice</strong></h3>-->
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation for RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation for RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+						<img class="stack fade-up" src="figures/support_5.png" style="position:fixed; top: 230px; left: 135px; width: 28%;" />
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation for RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+						<img class="stack fade-up" src="figures/support_5.png" style="position:fixed; top: 230px; left: 135px; width: 28%;" />
+						<img class="stack fade-up" src="figures/support_3.png" style="position:fixed; top: 140px; left: 510px; width: 18%;" />
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_16.png" style="position:fixed; top: 267px; left: 150px; width: 18%;" />
+						</div>
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_6.png" style="position:fixed; top: 300px; left: 102px; width: 9%;" />
+							<img class="stack fade-up" src="figures/support_4.png" style="position:fixed; top: 280px; left: 152px; width: 30%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_14.png" style="position:fixed; top: 338px; left: 102px; width: 15%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_7.png" style="position:fixed; top: 382px; left: 62px; width: 25%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_15.png" style="position:fixed; top: 419px; left: 102px; width: 15%;" />
+							<img class="stack fade-up" src="figures/support_8.png" style="position:fixed; top: 465px; left: 125px; width: 10%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_9.png" style="position:fixed; top: 442px; left: 245px; width: 25%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_17.png" style="position:fixed; top: 249px; left: 185px; width: 35%;" />
+							<img class="stack fade-up" src="figures/support_18.png" style="position:fixed; top: 349px; left: 545px; width: 20%;" />
+						</div>
+
+					</section>
+
+
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Evaluation Domains</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Evaluation Domains</h2>
+
+						<div style="width:100%; height:300px; display: flex; justify-content: center;">
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Push-Simple</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image31.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									6 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Push</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image31.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									10 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Remove-and-Push</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image39.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									20 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Pacman</b>
+								</p>
+								<img class="noborder" height="650px" src="figures/image40.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									2 Predicates <br> Discrete Action Space
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">
+						<div class="columnwrapper" style="width:400px;height:200px;">
+							<img class="stack fade-up" src="figures/image43.png" style="position:fixed; top: 30px; right: 90px; width: 158px; z-index: 2;" />
+
+							<img class="stack fade-up" src="figures/image41.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />
+							<img class="stack fade-up" src="figures/image42.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />
+						</div>
+					</section>
+
+					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">
+						<div class="columnwrapper" style="width:400px;height:200px;">
+							<img class="stack fade-up" src="figures/image43.png" style="position:fixed; top: 30px; right: 90px; width: 158px; z-index: 2;" />
+
+							<img class="stack fade-up" src="figures/image44.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />
+							<img class="stack fade-up" src="figures/image44.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />
+						</div>
+					</section>
+
+					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">
+						<div class="columnwrapper" style="width:400px;height:200px;">
+							<img class="stack fade-up" src="figures/image43.png" style="position:fixed; top: 30px; right: 90px; width: 158px; z-index: 2;" />
+
+							<img class="stack fade-up" src="figures/image46.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />
+							<img class="stack fade-up" src="figures/image48.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="columnwrapper" style="width:1300px;height:700px;">
+							<img class="stack fade-up" src="figures/image49.png" style="position: center; width: 1050px; " />
+
+							<img class="stack fade-up" src="figures/support_19.png" style="position:fixed; top: 500px; left: 90px; width: 1050px;" />
+						</div>
+					</section>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Our work pioneers the integration of self-explanation into robot learning using deep neural networks.</h4>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Future Directions</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+						<h5 style="text-align: left">1. The symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey;">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey;">1. The symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey;">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey;">1. The symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left">Enhance the self-explanation guided learning mechanism.</h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey;">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey;">1. The symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey;">Enhance the self-explanation guided learning mechanism.</h5>
+						<h5 style="text-align: left">Utilize the self-explanation guided learning to enhance various learning frameworks.</h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey;">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey;">1. The symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey;">Enhance the self-explanation guided learning mechanism.</h5>
+						<h5 style="text-align: left; color: dimgrey;">Utilize the self-explanation guided learning to enhance various learning frameworks.</h5>
+						<h5 style="text-align: left">Harness the power of self-explanation guided learning to address diverse problems and challenges.</h5>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+			  customcontrols: {
+    controls: [
+      { icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      { icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+    ]
+  },
+  				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//					{ src: 'reveal.js-plugins/audio-slideshow/slideshow-recorder.js'},
+					{ src: 'reveal.js-plugins/audio-slideshow/audio-slideshow.js'},
+					{ src: 'reveal.js-plugins/chalkboard/chalkboard.js'},
+					{ src: 'reveal.js-plugins/menu/menu.js'},
+				],
+  				chalkboard: { // font-awesome.min.css must be available
+					src: "chalkboard/chalkboard.json",
+					toggleChalkboardButton: { left: "80px" },
+					toggleNotesButton: { left: "130px" },
+//					theme: "whiteboard",
+//					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],
+//					pen: [ 'reveal.js-plugins/chalkboard/img/boardmarker.png' , 'reveal.js-plugins/chalkboard/img/boardmarker.png' ],
+//				        color: [ 'rgba(0,0,255,1)', 'rgba(0,0,255,0.5)' ],
+//				        draw: [ (RevealChalkboard) ?  RevealChalkboard.drawWithPen : null , (RevealChalkboard) ? RevealChalkboard.drawWithPen : null ],
+				},
+				hash: true,
+				// Options
+				width: 1280, // Set the width of the presentation
+				height: 720, // Set the height of the presentation
+				aspectRatio: 16/9, // Set the aspect ratio to 16:9
+				slideNumber: true,
+				controls: true,
+<!--				menu: {-->
+<!--    themes: false,-->
+<!--    transitions: false,-->
+<!--    markers: true,-->
+<!--    hideMissingTitles: true-->
+<!--}-->
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealCustomControls]
+			});
+		</script>
+
+<!--	<script>-->
+<!--			// Full list of configuration options available here:-->
+<!--			// https://github.com/hakimel/reveal.js#configuration-->
+<!--			Reveal.initialize({-->
+<!--				controls: true,-->
+<!--				progress: true,-->
+<!--				history: true,-->
+<!--				center: true,-->
+<!--				mouseWheel: true,-->
+<!--				previewLinks: true,-->
+<!--&lt;!&ndash;				menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome&ndash;&gt;-->
+<!--&lt;!&ndash;					themes: false,&ndash;&gt;-->
+<!--&lt;!&ndash;					transitions: false,&ndash;&gt;-->
+<!--&lt;!&ndash;					markers: true,&ndash;&gt;-->
+<!--&lt;!&ndash;					hideMissingTitles: true,&ndash;&gt;-->
+<!--&lt;!&ndash;					custom: [&ndash;&gt;-->
+<!--&lt;!&ndash;				            { title: 'Plugins', icon: '<i class="fa fa-external-link"></i>', src: 'toc.html' },&ndash;&gt;-->
+<!--&lt;!&ndash;				            { title: 'About', icon: '<i class="fa fa-info"></i>', src: 'about.html' }&ndash;&gt;-->
+<!--&lt;!&ndash;				        ]&ndash;&gt;-->
+<!--&lt;!&ndash;				},&ndash;&gt;-->
+<!--&lt;!&ndash;				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme&ndash;&gt;-->
+<!--&lt;!&ndash;				transition: Reveal.getQueryHash().transition || 'default', // none/fade/slide/convex/concave/zoom&ndash;&gt;-->
+
+<!--				// Optional libraries used to extend on reveal.js-->
+<!--				dependencies: [-->
+<!--					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },-->
+<!--					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },-->
+<!--					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },-->
+<!--					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },-->
+<!--					{ src: 'plugin/zoom/zoom.js', async: true, condition: function() { return !!document.body.classList; } },-->
+<!--					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },-->
+<!--//					{ src: 'reveal.js-plugins/audio-slideshow/slideshow-recorder.js'},-->
+<!--					{ src: 'reveal.js-plugins/audio-slideshow/audio-slideshow.js'},-->
+<!--					{ src: 'reveal.js-plugins/chalkboard/chalkboard.js'},-->
+<!--					{ src: 'reveal.js-plugins/menu/menu.js'},-->
+<!--				],-->
+<!--&lt;!&ndash;				audio: {&ndash;&gt;-->
+<!--&lt;!&ndash;					prefix: 'chalkboard/',&ndash;&gt;-->
+<!--&lt;!&ndash;					suffix: '.ogg',&ndash;&gt;-->
+<!--&lt;!&ndash;					defaultDuration: 5,&ndash;&gt;-->
+<!--&lt;!&ndash;//					textToSpeechURL: "http://api.voicerss.org/?key=[YOUR_KEY]&hl=en-gb&c=ogg&src=",&ndash;&gt;-->
+<!--&lt;!&ndash;					advance: 500,&ndash;&gt;-->
+<!--&lt;!&ndash;					autoplay: false,&ndash;&gt;-->
+<!--&lt;!&ndash;					defaultText: true,&ndash;&gt;-->
+<!--&lt;!&ndash;					playerOpacity: 0.2,&ndash;&gt;-->
+<!--&lt;!&ndash;				},&ndash;&gt;-->
+<!--				chalkboard: { // font-awesome.min.css must be available-->
+<!--					src: "chalkboard/chalkboard.json",-->
+<!--					toggleChalkboardButton: { left: "80px" },-->
+<!--					toggleNotesButton: { left: "130px" },-->
+<!--//					theme: "whiteboard",-->
+<!--//					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],-->
+<!--//					pen: [ 'reveal.js-plugins/chalkboard/img/boardmarker.png' , 'reveal.js-plugins/chalkboard/img/boardmarker.png' ],-->
+<!--//				        color: [ 'rgba(0,0,255,1)', 'rgba(0,0,255,0.5)' ],-->
+<!--//				        draw: [ (RevealChalkboard) ?  RevealChalkboard.drawWithPen : null , (RevealChalkboard) ? RevealChalkboard.drawWithPen : null ],-->
+<!--				},-->
+<!--				keyboard: {-->
+<!--				    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle chalkboard when 'c' is pressed-->
+<!--				    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed-->
+<!--				    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed-->
+<!--				     8: function() { RevealChalkboard.reset() },	// reset all chalkboard data when 'BACKSPACE' is pressed-->
+<!--				    68: function() { RevealChalkboard.download() },	// downlad chalkboard drawing when 'd' is pressed-->
+<!--					90: function() { Recorder.downloadZip(); }, 	// press 'z' to download zip containing audio files-->
+<!--					84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files-->
+<!--				},-->
+<!--			});-->
+<!--	</script>-->
+	</body>
+</html>

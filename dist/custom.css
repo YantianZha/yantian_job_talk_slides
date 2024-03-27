@@ -1,0 +1,95 @@
+/*.reference {*/
+/*    !* small footnote at absolute bottom right *!*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    font-size: 0.5em;*/
+/*    margin: 5px;*/
+/*    margin-top: -5px;*/
+/*}*/
+
+/*.reveal .noborder {*/
+/*    !* image without borders *!*/
+/*    border: 0px;*/
+/*    box-shadow: none;*/
+/*    outline: none;*/
+/*}*/
+
+/* CSS */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: lowercase; /* Convert all text to lowercase */
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: capitalize; /* Capitalize the first letter of each word in titles and subtitles */
+}
+
+.vertical-line {
+    height: 600px; /* Adjust height as needed */
+    width: 2px; /* Adjust width as needed */
+    background-color: orange; /* Adjust color as needed */
+}
+
+.reveal .toptitle {
+    /* title at top of slides */
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.reveal h1 span.no-transform,
+.reveal h2 span.no-transform,
+.reveal h3 span.no-transform,
+.reveal h4 span.no-transform,
+.reveal h5 span.no-transform,
+.reveal h6 span.no-transform { text-transform: none; }
+
+.all-caps {
+    text-transform: uppercase;
+}
+
+.lowercase-first-uppercase {
+    text-transform: lowercase;
+}
+
+.lowercase-first-uppercase:first-letter {
+    text-transform: uppercase;
+}
+
+/*.reveal .columnwrapper {*/
+/*    !* columns *!*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.reveal .column {*/
+/*    !* column *!*/
+/*    flex: 1;*/
+/*    margin: 10px;*/
+/*}*/
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    position: absolute;
+    top: 298px;
+    left: 147px;
+}
+
+/*svg {*/
+/*    position: fixed;*/
+/*    top: 262px;*/
+/*    left: 332px;*/
+/*    height: 150px;*/
+/*}*/
+
+/* Increase font size for chart labels */
+.reveal .chart-container canvas {
+    font-size: 36px; /* Adjust the font size here */
+}
