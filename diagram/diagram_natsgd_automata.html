@@ -6,7 +6,7 @@
 <body>
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="../plugin/diagram/revealjs-diagram.js"></script>
+  <script src="../plugin/diagram/revealjs-diagram-v5.js"></script>
   <script>
 
     var treeData = {
@@ -18,8 +18,8 @@
 
     // define a function to add multiple links
     function addLinks() {
-      window.diagram.addLink('CutBoard-Grasped-2', '...', treeData)();
-      window.diagram.addLink('...', '...', treeData)();
+      window.diagram.addLink('Carrot-on-CutBoard', 'Carrots-in-Sink', treeData)();
+<!--      window.diagram.addLink('...', '...', treeData)();-->
     }
 
     function removeLinks() {
@@ -31,14 +31,14 @@
       window.diagram.addItem('Carrots-Grasped', 'Carrots-in-Sink', treeData, 80, '#FF5C8F'),
       window.diagram.addItem('Carrot-on-CutBoard', 'Carrots-Grasped', treeData, 80, '#FF5C8F'),
       addLinks,
-      window.diagram.addItem('CarrotPieces-on-CutBoard', 'Carrot-on-CutBoard', treeData, 80, '#FF5C8F'),
+<!--      window.diagram.addItem('CarrotPieces-on-CutBoard', 'Carrot-on-CutBoard', treeData, 80, '#FF5C8F'),-->
     ];
 
     var _inverse_transitions = [
       window.diagram.removeItem('Carrots-Grasped', treeData),
       window.diagram.removeItem('Carrot-on-CutBoard', treeData),
       removeLinks,
-      window.diagram.removeItem('CarrotPieces-on-CutBoard', treeData),
+<!--      window.diagram.removeItem('CarrotPieces-on-CutBoard', treeData),-->
     ];
 
     // start the tree

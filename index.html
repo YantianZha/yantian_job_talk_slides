@@ -92,14 +92,12 @@
     					</video>
 					</section>
 
-					<section data-background="figures/job_talk/image3.gif">
-					</section>
-
-					<section data-auto-animate data-background="figures/job_talk/image3.gif">
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 100px; left: 147px; width: 110px;" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 20px; left: 430px; width: 110px;" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; top: 30px; right: 400px; width: 130px;" />
-						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; top: 100px; right: 115px; width: 130px;" />
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/image3.gif" style="position:fixed; top: 0px; left: 30px; width: 100%;" />
+						<img class="stack fade-up fragment" data-fragment-index="0" src="figures/job_talk/perception.PNG" style="position:fixed; top: 130px; left: 210px; width: 110px;" />
+						<img class="stack fade-up fragment" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 75px; left: 440px; width: 110px;" />
+						<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/planning.PNG" style="position:fixed; top: 80px; right: 450px; width: 130px;" />
+						<img class="stack fade-up fragment" data-fragment-index="3" src="figures/job_talk/self-explanation.PNG" style="position:fixed; top: 100px; right: 185px; width: 130px;" />
 					</section>
 
 					<section data-auto-animate>
@@ -325,7 +323,7 @@
 
 				<section>
 					<video width="100%" controls autoplay>
-						<source src="figures/job_talk/baxter_example.avi" type="video/avi">
+						<source src="figures/job_talk/baxter_example.mp4" type="video/mp4">
 					</video>
 					<img class="stack fade-up" src="figures/job_talk/baxter.png" style="position:fixed; top: 0px; left: 0px; width: 250px;" />
 					<img class="stack fade-up" src="figures/job_talk/baxter_author.png" style="position:fixed; top: 0px; right: 0px; width: 250px;" />
@@ -2032,13 +2030,17 @@
 					</section>
 
 					<section data-auto-animate>
-						<h2>Human: Cut <span class="lowercase-first-uppercase">those (pointing to some carrots in the sink)</span></h2>
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd_task_tree.svg" />-->
+						<img class="noborder" src="figures/job_talk/task_representation_example.svg"/>
 					</section>
 
 					<section class="fig-container"
 						data-fig-id="fig-diagram1"
 						data-file="diagram/diagram_natsgd_tree.html">
+					</section>
+
+					<section class="fig-container"
+						data-fig-id="fig-diagram2"
+						data-file="diagram/diagram_natsgd_automata.html">
 					</section>
 
 					<section data-auto-animate>
@@ -2088,15 +2090,15 @@
 						<h2 class="toptitle">NatSGD Evaluation</h2>
 						<img class="noborder" src="figures/job_talk/natsgd7.svg"
 							style="position:fixed; bottom: 10px; left: 30px; width: 500px;" />
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd8.svg"
+						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd8.png"
 							style="position:fixed; top: 100px; right: -50px; width: 800px;" />
-						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/natsgd9.svg"
+						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/natsgd9.png"
 							style="position:fixed; top: 320px; right: -50px; width: 800px;" />
-						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/natsgd10.svg"
+						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/natsgd10.png"
 							style="position:fixed; top: 170px; right: 100px; width: 1000px;" />
-						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/natsgd11.svg"
-							style="position:fixed; top: 440px; right: -50px; width: 800px;" />
-						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/natsgd12.svg"
+						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/natsgd11.png"
+							style="position:fixed; top: 440px; right: -50px; width: 800px; z-index: 1;" />
+						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/natsgd12.png"
 							style="position:fixed; top: 185px; right: 250px; width: 800px;" />
 					</section>
 
