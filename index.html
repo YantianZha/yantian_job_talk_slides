@@ -33,6 +33,17 @@
 		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
+<!--		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>-->
+<!--			<script>-->
+<!--			$(function(){-->
+<!--			  $("#includedContent").load("diagram/diagram2.html");-->
+<!--			});-->
+<!--			</script>-->
+
+		<!--Diagram Plugin-->
+<!--		<link rel="stylesheet" href="reveal.js/css/reveal.css">-->
+<!--        <link rel="stylesheet" href="reveal.js/css/theme/black.css">-->
+
 <!--		&lt;!&ndash;[if lt IE 9]>-->
 <!--		<script src="reveal.js/lib/js/html5shiv.js"></script>-->
 <!--		<![endif]&ndash;&gt;-->
@@ -44,6 +55,8 @@
 		<link rel="stylesheet" href="dist/theme/white.css">
 		<link rel="stylesheet" href="dist/custom.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
+
+		<link rel="stylesheet" href="../plugin/diagram/revealjs-diagram.css">
 		<!-- Theme used for syntax highlighted code -->
 <!--		<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
 		<!-- Theme used for syntax highlighted code -->
@@ -2003,19 +2016,40 @@
 							<span class="fragment" style="font-size: 36px; text-align: left;" data-fragment-index="0">
 								<b>Robots' Task Understanding:</b>
 							</span>
-
-							<span class="fragment" style="color: dimgray; font-size: 36px; text-align: left;" data-fragment-index="1">
-								<span style="color: deeppink;">Temporal Logic</span> Representation of Sub-tasks
-							</span>
 						</p>
+
+						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/question_mark.svg"
+						style="position:fixed; bottom: 40px; right: 120px; width: 230px;" />
+
+					</section>
+
+					<section data-auto-animate>
+						<h2>How <span class="no-transform">to</span> Represent “Task Understanding”?</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2>How <span class="no-transform">to</span> Represent “Task Understanding”?</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Human: Cut <span class="lowercase-first-uppercase">those (pointing to some carrots in the sink)</span></h2>
+<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd_task_tree.svg" />-->
+					</section>
+
+					<section class="fig-container"
+						data-fig-id="fig-diagram1"
+						data-file="diagram/diagram_natsgd_tree.html"
+						style="background-color: black;">
+					</section>
+
+					<section data-auto-animate>
+						<h2>Linear Temporal Logic (LTL)</h2>
+						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/LTL.png" />
 					</section>
 
 					<section data-auto-animate>
 						<h2>Automata</h2>
-					</section>
-
-					<section data-auto-animate>
-						<h2>Linear Temporal Logic</h2>
+						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd_automata.svg" />
 					</section>
 
 					<section data-auto-animate>
@@ -2024,7 +2058,10 @@
 					</section>
 
 					<section data-auto-animate>
-						<h2>Linear Temporal Logic to Automata Conversion</h2>
+						<h2 class="toptitle">Linear Temporal Logic (LTL) Annotations</h2>
+						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray">Better <span class="lowercase-first-uppercase">leverage the power of language models</span></h4>
+						<h4 class="fragment" data-fragment-index="1" style="text-align: left; color: dimgray">Better <span class="lowercase-first-uppercase">connect to other logic reasoning and planning systems</span></h4>
+						<h4 class="fragment" data-fragment-index="2" style="text-align: left; color: dimgray">LTL <span class="lowercase-first-uppercase">and</span> Automata <span class="lowercase-first-uppercase">can convert to each other </span></h4>
 					</section>
 
 					<section data-auto-animate>
@@ -2066,7 +2103,17 @@
 
 					<section data-auto-animate>
 						<h2>NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>
+					</section>
 
+					<section data-auto-animate>
+						<h2>NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>
+						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/spot_score.svg"/>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>
+						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray">LTL <span class="lowercase-first-uppercase">formulas express temporal properties in a concise, human-readable way, while automata represent these properties in a more structured, machine-readable format</span></h4>
+						<h4 class="fragment" data-fragment-index="1" style="text-align: left; color: dimgray">Automata-based <span class="lowercase-first-uppercase">approaches may offer greater efficiency and scalability for large or complex systems than directly manipulating LTL formulas</span></h4>
 					</section>
 
 					<section>
@@ -2120,6 +2167,14 @@
 		<script src="plugin/highlight/highlight.js"></script>
 		<script src="plugin/math/math.js"></script>
 		<script src="plugin/menu/menu.js"></script>
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="plugin/d3js/d3js.js"></script>
+
+<!--	    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<!--	    <script src="../plugin/diagram/revealjs-diagram-yantian-v4.js"></script>-->
+
+		<script src="plugin/reveal.js-d3/reveald3.js"></script>
 
 
 		<script>
@@ -2188,7 +2243,7 @@
 <!--    hideMissingTitles: true-->
 <!--}-->
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealCustomControls, RevealLoadContent, RevealFullscreen, RevealMath.KaTeX, RevealMenu, RevealChart]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealCustomControls, RevealLoadContent, RevealFullscreen, RevealMath.KaTeX, RevealMenu, RevealChart, Reveald3]
 			});
 		</script>
 

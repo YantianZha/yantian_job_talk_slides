@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="stylesheet" href="../plugin/diagram/revealjs-diagram.css">
+  <style>
+  body {
+    background-color: black;
+  }
+</style>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="../plugin/diagram/revealjs-diagram.js"></script>
+  <script>
+
+    var treeData = {
+      name: 'Carrots-in-Sink',
+      x0: window.diagram.height / 2,
+      y0: 0,
+      children: []
+    };
+
+    // define a function to add multiple nodes
+    function addChildren_1() {
+      window.diagram.addItem('CarrotPieces-on-CutBoard', 'Carrot-on-CutBoard', treeData)();
+      window.diagram.addItem('Carrot-Grasped-1', 'Carrot-on-CutBoard', treeData)();
+    };
+
+    function removeChildren_1() {
+      window.diagram.removeItem('CarrotPieces-on-CutBoard', treeData)();
+      window.diagram.removeItem('Carrot-Grasped-1', treeData)();
+    }
+
+    // define a function to add multiple nodes
+    function addChildren_2() {
+      window.diagram.addItem('CutBoard-Grasped', 'CarrotPieces-on-CutBoard', treeData)();
+      window.diagram.addItem('Carrot-Grasped-2', 'CarrotPieces-on-CutBoard', treeData)();
+    };
+
+    function removeChildren_2() {
+      window.diagram.removeItem('CutBoard-Grasped', treeData)();
+      window.diagram.removeItem('Carrot-Grasped-2', treeData)();
+    }
+
+    function addChildren_3() {
+      window.diagram.addItem('CarrotPieces-on-CutBoard-1', 'Carrot-on-CutBoard-1', treeData)();
+      window.diagram.addItem('Carrot-Grasped-4', 'Carrot-on-CutBoard-1', treeData)();
+    };
+
+    function removeChildren_3() {
+      window.diagram.removeItem('CarrotPieces-on-CutBoard-1', treeData)();
+      window.diagram.removeItem('Carrot-Grasped-4', treeData)();
+    }
+
+    function addChildren_4() {
+      window.diagram.addItem('CutBoard-Grasped-2', 'CarrotPieces-on-CutBoard-1', treeData)();
+      window.diagram.addItem('Carrot-Grasped-5', 'CarrotPieces-on-CutBoard-1', treeData)();
+    };
+
+    function removeChildren_4() {
+      window.diagram.removeItem('CutBoard-Grasped-2', treeData)();
+      window.diagram.removeItem('Carrot-Grasped-5', treeData)();
+    }
+
+<!--    // define a function to add multiple links-->
+    function addLinks() {
+      window.diagram.addLink('CutBoard-Grasped-2', '...', treeData)();
+      window.diagram.addLink('Carrot-Grasped-5', '...', treeData)();
+      window.diagram.addLink('Carrot-Grasped-4', '...', treeData)();
+    }
+
+    function removeLinks() {
+      window.diagram.removeLink('CutBoard-Grasped-2', '...', treeData)();
+      window.diagram.removeLink('Carrot-Grasped-5', '...', treeData)();
+      window.diagram.removeLink('Carrot-Grasped-4', '...', treeData)();
+    }
+
+    var _transitions = [
+      window.diagram.addItem('Carrot-Grasped', 'Carrots-in-Sink', treeData, 80, '#FF5C8F'),
+      window.diagram.addItem('Carrot-on-CutBoard', 'Carrot-Grasped', treeData, 80, '#FF5C8F'),
+      addChildren_1,
+      addChildren_2,
+      window.diagram.addItem('CarrotPieces-in-Bowl', 'CutBoard-Grasped', treeData),
+      window.diagram.addItem('Carrot-Grasped-3', 'CarrotPieces-in-Bowl', treeData),
+      window.diagram.addItem('...', 'Carrot-Grasped-3', treeData),
+      window.diagram.addItem('Carrot-on-CutBoard-1', 'Carrot-Grasped-1', treeData, 80, '#FF5C8F'),
+      addChildren_3,
+      addChildren_4,
+      addLinks,
+    ];
+
+    var _inverse_transitions = [
+      window.diagram.removeItem('Carrot-Grasped', treeData),
+      window.diagram.removeItem('Carrot-on-CutBoard', treeData),
+      removeChildren_1,
+      removeChildren_2,
+      window.diagram.removeItem('CarrotPieces-in-Bowl', treeData),
+      window.diagram.removeItem('Carrot-Grasped-3', treeData),
+      window.diagram.removeItem('...', treeData),
+      removeChildren_3,
+      removeChildren_4,
+      removeLinks,
+    ];
+
+    // start the tree
+    window.diagram.register('intro', function() {
+      window.diagram.init(treeData);
+    });
+  </script>
+</body>

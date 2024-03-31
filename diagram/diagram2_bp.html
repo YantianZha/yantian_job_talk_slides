@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="stylesheet" href="../plugin/diagram/revealjs-diagram.css">
+</head>
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="../plugin/diagram/revealjs-diagram.js"></script>
+  <script>
+
+    var treeData = {
+      name: 'A',
+      x0: window.diagram.height / 2,
+      y0: 0,
+      children: []
+    };
+
+    // Function to add a new node with specified color
+    function addNodeWithColor(tree, name, parent, color) {
+      return function() {
+        var parentNode = findNode(parent, [tree]);
+        if (!parentNode.children) {
+          parentNode.children = [];
+        }
+        parentNode.children.push({
+          name: name,
+          color: color // Store color in the node data
+        });
+        update(tree); // Update the provided tree data
+      };
+    }
+
+    // Add a new node 'B' with specified color on button click
+    var _transitions = [
+      addNodeWithColor(treeData, 'B', 'A', '#FF0000'), // Red color code
+    ];
+
+    // Remove the node 'B'
+    var _inverse_transitions = [
+      window.diagram.removeItem('B', treeData),
+    ];
+
+    // Start the tree
+    window.diagram.register('intro', function() {
+      window.diagram.init(treeData);
+    });
+  </script>
+
+  <!-- Button to add a node with specified color -->
+  <button onclick="_transitions[0]()">Add Node B (Red)</button>
+
+</body>

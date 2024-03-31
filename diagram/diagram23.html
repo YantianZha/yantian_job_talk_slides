@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="stylesheet" href="../plugin/diagram/revealjs-diagram.css">
+</head>
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="../plugin/diagram/revealjs-diagram-yantian-v3_arrow.js"></script>
+  <script>
+
+    var treeData = {
+      name: 'A',
+      x0: window.diagram.height / 2,
+      y0: 0,
+      children: []
+    };
+
+    // Function to start the tree
+    function startTree(tree) {
+      window.diagram.register('intro', function() {
+        window.diagram.init(tree);
+      });
+    }
+
+    startTree();
+
+    var _transitions = [
+    {
+      transitionForward: () => startTree(treeData),
+      index: "onSlideChange"
+      }
+    ];
+
+    // start the tree
+<!--    startTree(treeData);-->
+  </script>
+</body>
