@@ -10,7 +10,7 @@ var Reveald3js = window.Reveald3js || (function(){
         var background = element.tagName == 'SECTION',
             slide = background ? element : element.closest('section'),
             idx = Reveal.getIndices(slide),
-            slide_background = background ? Reveal.getSlideBackground(idx.h, idx.v) : undefined;
+            slide_background = background ? Reveal.getSlideBackground(idx.h, idx.v) : undefined,
             container = background ? slide_background : element;
 
         // embed html files as iframe
@@ -79,7 +79,7 @@ var Reveald3js = window.Reveald3js || (function(){
             idx = Reveal.getIndices(slide),
             iframe = slide.querySelector('iframe') ||
                 Reveal.getSlideBackground(idx.h, idx.v).querySelector('iframe'),
-            fig = (iframe.contentWindow || iframe.contentDocument);
+            fig = iframe.contentWindow || iframe.contentDocument;
         fig._transitions[fig._transition_state]();
         fig._transition_state = fig._transition_state + 1;
     });

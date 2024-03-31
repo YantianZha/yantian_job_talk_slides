@@ -2038,8 +2038,7 @@
 
 					<section class="fig-container"
 						data-fig-id="fig-diagram1"
-						data-file="diagram/diagram_natsgd_tree.html"
-						style="background-color: black;">
+						data-file="diagram/diagram_natsgd_tree.html">
 					</section>
 
 					<section data-auto-animate>
@@ -2162,6 +2161,7 @@
 		</div>
 
 		<script src="dist/reveal.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/reveal.min.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
@@ -2169,7 +2169,7 @@
 		<script src="plugin/menu/menu.js"></script>
 
 		<script src="https://d3js.org/d3.v3.min.js"></script>
-		<script src="plugin/d3js/d3js.js"></script>
+		<script src="plugin/d3js/d3js_v2.js"></script>
 
 <!--	    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
 <!--	    <script src="../plugin/diagram/revealjs-diagram-yantian-v4.js"></script>-->
@@ -2222,6 +2222,7 @@
 				slideNumber: true,
 				controls: true,
 
+
 				// Charts
 				chart: {
 						defaults: {
@@ -2245,39 +2246,56 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealCustomControls, RevealLoadContent, RevealFullscreen, RevealMath.KaTeX, RevealMenu, RevealChart, Reveald3]
 			});
+
+		  // Add event listener for slide changes after initialization
+		  Reveal.addEventListener('ready', function(event) {
+			console.log('reveal.js initialized');
+
+			Reveal.addEventListener('slidechanged', function(event) {
+			  console.log('Slide changed event fired:', event);
+
+			  // Check if the current slide is the one where you want to refresh the browser
+			  if (event.indexh === 36 && event.indexv === 7) {
+				console.log('Refreshing browser');
+				// Refresh the browser
+				location.reload();
+			  }
+			});
+		  });
+
 		</script>
 
-<!-- Add this script at the end of your HTML file, just before the closing </body> tag -->
-<script>
-    // Function to preload the video
-    function preloadVideo(videoElement) {
-        if (videoElement.readyState === 4) {
-            // Video is fully loaded, do nothing
-            return;
-        }
+<!--&lt;!&ndash; Add this script at the end of your HTML file, just before the closing </body> tag &ndash;&gt;-->
+<!--<script>-->
+<!--    // Function to preload the video-->
+<!--    function preloadVideo(videoElement) {-->
+<!--        if (videoElement.readyState === 4) {-->
+<!--            // Video is fully loaded, do nothing-->
+<!--            return;-->
+<!--        }-->
 
-        // Start loading the video
-        videoElement.load();
-    }
+<!--        // Start loading the video-->
+<!--        videoElement.load();-->
+<!--    }-->
 
-    // Listen for Reveal.js initialization event
-    Reveal.addEventListener('ready', function(event) {
-        // Get the video element
-        var videoElement = document.querySelector('video');
+<!--    // Listen for Reveal.js initialization event-->
+<!--    Reveal.addEventListener('ready', function(event) {-->
+<!--        // Get the video element-->
+<!--        var videoElement = document.querySelector('video');-->
 
-        // Preload the video
-        preloadVideo(videoElement);
-    });
+<!--        // Preload the video-->
+<!--        preloadVideo(videoElement);-->
+<!--    });-->
 
-    // Listen for slide change event
-    Reveal.addEventListener('slidechanged', function(event) {
-        // Get the video element in the current slide
-        var videoElement = event.currentSlide.querySelector('video');
+<!--    // Listen for slide change event-->
+<!--    Reveal.addEventListener('slidechanged', function(event) {-->
+<!--        // Get the video element in the current slide-->
+<!--        var videoElement = event.currentSlide.querySelector('video');-->
 
-        // Preload the video
-        preloadVideo(videoElement);
-    });
-</script>
+<!--        // Preload the video-->
+<!--        preloadVideo(videoElement);-->
+<!--    });-->
+<!--</script>-->
 
 	</body>
 </html>
