@@ -57,7 +57,7 @@
 <!--		<script src="reveal.js/lib/js/html5shiv.js"></script>-->
 <!--		<![endif]&ndash;&gt;-->
 
-		<title>Learning from Ambiguous Demonstrations with Self-Explanation Guided Reinforcement Learning</title>
+		<title>Cognitively-Enhanced Robotic Manipulation Across Sea, Air, and Land</title>
 <!--		<input type="text" autocapitalize="off">-->
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -78,7 +78,7 @@
 				<section data-auto-animate>
 					<!-- title slide -->
 					<div class="text-container" style="position: relative; top: 80px">
-						<h3>Perceiving, Acting, Planning, and Self-Explaining: A Cognitive Quartet <span class="no-transform">for</span> Future Manufacturing</h3>
+						<h3>Cognitively-Enhanced Robotic Manipulation Across Sea, Air, <span class="no-transform">and</span> Land</h3>
 
 						<div>
 							<a href="https://yantianzha.github.io/">Yantian Zha</a>
@@ -89,206 +89,143 @@
 						</div>
 					</div>
 
-					<img src="figures/job_talk/manufacturing_example_1.svg" style="position: relative; top: 80px; width: 40%; opacity: 0.4;">
+<!--					<img src="figures/job_talk/manufacturing_example_1.svg" style="position: relative; top: 80px; width: 40%; opacity: 0.4;">-->
 
 				</section>
 
-				<section data-auto-animate>
+
+
+				<section>
 					<section data-auto-animate>
-						<h4 style="display: none;"> A Cognitive Quartet</h4>
-					    <video width="100%" controls>
-        					<source src="figures/job_talk/quartet%20example.mp4" type="video/mp4">
-    					</video>
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/image3.gif" style="position:fixed; top: 0px; left: 30px; width: 100%;" />
-						<img class="stack fade-up fragment" data-fragment-index="0" src="figures/job_talk/perception.PNG" style="position:fixed; top: 130px; left: 210px; width: 110px;" />
-						<img class="stack fade-up fragment" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 75px; left: 440px; width: 110px;" />
-						<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/planning.PNG" style="position:fixed; top: 80px; right: 450px; width: 130px;" />
-						<img class="stack fade-up fragment" data-fragment-index="3" src="figures/job_talk/self-explanation.PNG" style="position:fixed; top: 100px; right: 185px; width: 130px;" />
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 160px; left: 460px; width: 150px; z-index: 1" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 160px; right: 460px; width: 150px; z-index: 1" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 160px; left: 460px; width: 150px; z-index: 1" />
-						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 160px; right: 460px; width: 150px; z-index: 1" />
-						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 63%; opacity: 0.3; z-index: 0">
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 60px; width: 150px;" />
-						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 25%;">
-					</section>
-
-<!--					<section data-auto-animate>-->
-<!--						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />-->
-<!--						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />-->
-<!--						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />-->
-<!--						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />-->
-<!--						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />-->
-<!--						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 25%;">-->
-<!--					</section>-->
-
-					<section data-auto-animate>
-						<div style="width:100%; height:300px; display: flex; justify-content: center;">
-							<div>
-								<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-								<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
-								<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
-							</div>
-
-							<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:800px;height:300px; top: 190px;">
-								<img class="noborder" height="650px" src="figures/image20.gif"/>
-								<p class="reference" style="margin-top: -10px; font-size: x-large;">
-									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
-										Affordance-Aware Imitation Learning</a>, <br>Zha et al., IROS, 2022
-								</p>
-							</div>
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<div style="width:100%; height:300px; display: flex; justify-content: center;">
-							<div>
-								<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-								<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
-								<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
-							</div>
-
-							<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:890px; height:150px; top: 20px; left: 250px">
-								<img class="noborder" height="650px" src="figures/job_talk/distr2vec.png"/>
-								<p class="reference" style="margin-top: -20px; font-size: x-large;">
-									<a href="https://arxiv.org/abs/1712.01949">
-										Recognizing Plans by Learning Embeddings from Observed Action Distributions</a>, <br>Zha et al., AAMAS, 2018
-								</p>
-							</div>
-
-							<div class="columnwrapper fragment" data-fragment-index="1" style="position:fixed; width:800px;height:350px; top: 260px;">
-								<img class="noborder" height="650px" src="figures/job_talk/prda.svg"/>
-								<p class="reference" style="margin-top: -20px; font-size: x-large;">
-									<a href="https://arxiv.org/abs/1812.00301">
-										Plan-Recognition-driven Attention Modeling for Visual Recognition</a>, <br>Zha et al., AAAI-WS, 2019
-								</p>
-							</div>
-
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 260px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/triangle.svg" style="position:fixed; top: 60px; left: 260px; width: 650px;" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 180px; left: 290px; width: 120px;" />
-						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 304px; height: 155px;" />
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 90px; left: 290px; width: 120px;" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 80px; right: 540px; width: 120px;" />
-						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 130px; right: 640px; width: 230px;" />
-						<img class="stack fade-up" src="figures/job_talk/arrow.svg" style="position:fixed; bottom: 130px; right: 400px; width: 230px;" />
-					</section>
-
-					<section data-auto-animate>
-						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 260px; width: 150px;" />
+						<h2 class="toptitle">Robot Manipulation: Increased Morphological Complexity</h2>
 						<div class="fragment" data-fragment-index="0">
-							<img class="stack fade-up" src="figures/image3.png" style="position:fixed; top: 100px; left: 420px; width: 170px;" />
-							<img class="stack fade-up" src="figures/image4.png" style="position:fixed; top: 100px; left: 90px; width: 260px;" />
-							<img class="stack fade-up" src="figures/image5.png" style="position:fixed; top: 100px; left: 380px; width: 20.5px;" />
-							<img class="stack fade-up" src="figures/image6.gif" style="position:fixed; bottom: 63px; left: 90px; width: 500px;" />
-							<p class="reference" style="margin-top: -10px; font-size: x-large; position: fixed; left: 600px;">
-								<a href="https://github.com/YantianZha/SERLfD">
-									SERLfD: Learning from Ambiguous Demonstrations <br>with Self-Explanation Guided Reinforcement Learning</a>, <br>Zha et al., AAAI, 2024
-							</p>
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around;">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/CMU/image3.gif" data-delay="800">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" src="figures/CMU/image4.gif" data-delay="220">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" src="figures/CMU/image5.gif" data-delay="200">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/CMU/image6.gif" data-delay="180">
+							</div>
+							<div class="row fivegrid smallcircles" style="display: flex; justify-content: space-around;">
+								<img class="animate__fadeInUp" style="height: 50px; width: auto;" src="figures/CMU/arrow.svg" data-delay="160">
+							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="2"><span style="color: deeppink;">Fundamental Robotics Challenges</span></h4>
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="3"><span style="color: deeppink;">Human-Robot Collaboration Challenges</span></h4>
+						<h2 class="toptitle">Robot Manipulation: Expanding Workspaces</h2>
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around;">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/CMU/image7.gif" data-delay="100">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" src="figures/CMU/image12.gif" data-delay="1200">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" src="figures/CMU/image9.gif" data-delay="1900">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/AAM-SEALS/media6.gif" data-delay="2200">
+							</div>
+
+							<div class="fragment" data-fragment-index="1" style="border: 2px solid deeppink; padding: 20px; width: 250px; height: 125px; margin: 20px auto; text-align: center; font-size: 16px; position: absolute; top: -5px; right: 20px">
+                				<p style="text-align: center; font-size: 19px; color: deeppink; margin-top: 145px; font-weight: bold">
+									Ours, Aerial-Aquatic Manipulators, Under Review
+								</p>
+							</div>
+						</div>
+
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around; position: absolute; bottom: -280px">
+								<img class="animate__backInLeft" style="position: absolute; height: 160px; width: auto; left: 40%" data-src="figures/CMU/image8.gif" data-delay="700">
+								<img class="animate__backInLeft" style="position: absolute; height: 160px; width: auto; left: 170%" src="figures/CMU/image13.gif" data-delay="1600">
+								<img class="animate__backInLeft" style="height: 160px; width: auto; position: relative; left: 290%" src="figures/CMU/image10.gif" data-delay="2100">
+							</div>
+						</div>
+
+                        <img class="animate__fadeInUp" style="position: fixed; height: 50px; width: auto; left: 40px" src="figures/CMU/arrow.svg" data-delay="160">
 					</section>
 
-					<section data-auto-animate>
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
-						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/human-robot-collaboration.PNG" style="position:fixed; top: 300px; left: 563px; height: 200px;" />
-						<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/arrow_10.svg" style="position:fixed; transform: rotate(47deg); top: 232px; left: 390px; height: 150px;" />
+                    <section data-auto-animate>
+						<h2 class="toptitle">Robot Manipulation: Increased Intelligence</h2>
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around; ">
+								<img class="animate__backInLeft" style="height: 205px; width: auto;" data-src="figures/CMU/image17.gif" data-delay="100">
+								<img class="animate__backInLeft" style="height: 205px; width: auto;" src="figures/image20.gif" data-delay="1200">
+								<img class="animate__backInLeft" style="height: 205px; width: auto;" data-src="figures/image44.gif" data-delay="1900">
+							</div>
+
+
+						</div>
+
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around; position: absolute; bottom: -310px">
+								<img class="animate__backInLeft" style="position: absolute; height: 205px; width: auto; left: 70%" data-src="figures/CMU/image18.gif" data-delay="700">
+								<img class="animate__backInLeft" style="position: relative; height: 205px; width: auto; left: 190%" src="figures/CMU/image16.gif" data-delay="1600">
+							</div>
+						</div>
+
+                        <img class="animate__fadeInUp" style="position: fixed; height: 50px; width: auto; left: 40px" src="figures/CMU/arrow.svg" data-delay="160">
+
+                        <div class="fragment" data-fragment-index="0">
+                            <p class="animate__backInLeft" data-delay="100" style="text-align: center; font-size: 29px; color: black; margin-top: 145px; font-weight: bold; position: absolute; bottom: -40px; left: 120px;">
+                                Perception
+                            </p>
+
+                            <p class="animate__backInLeft" data-delay="600" style="text-align: center; font-size: 29px; color: black; margin-top: 145px; font-weight: bold; position: absolute; bottom: -350px; left: 260px;">
+                                Action/Planning
+                            </p>
+
+                            <p class="animate__backInLeft" data-delay="650" style="text-align: center; font-size: 29px; color: black; margin-top: 145px; font-weight: bold; position: absolute; bottom: -40px; left: 420px;">
+                                Perception-Action Coupling
+                            </p>
+
+                            <p class="animate__backInLeft" data-delay="680" style="text-align: center; font-size: 29px; color: black; margin-top: 145px; font-weight: bold; position: absolute; bottom: -350px; left: 690px;">
+                                Perception-Planning Coupling
+                            </p>
+
+                            <p class="animate__backInLeft" data-delay="690" style="text-align: center; font-size: 27px; color: black; margin-top: 145px; font-weight: bold; position: absolute; bottom: -40px; left: 840px;">
+                                Self-Explanation for Robot Learning
+                            </p>
+                        </div>
+                    </section>
+
+                    <section data-auto-animate>
+						<h2 class="toptitle">Robot Manipulation: Increased Intelligence</h2>
 						<div>
-							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line1.svg" style="position:fixed; top: 130px; left: 203px; height: 100px;" />
-							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line2.svg" style="position:fixed; bottom: 200px; left: 190px; height: 267px; transform: rotate(7deg);" />
-							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line3.svg" style="position:fixed; top: 130px; left: 435px; height:100px;" />
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around; ">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/CMU/image17.gif" data-delay="100">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" src="figures/image20.gif" data-delay="1200">
+								<img class="animate__backInLeft" style="height: 160px; width: auto;" data-src="figures/image44.gif" data-delay="1900">
+							</div>
+
+
 						</div>
 
-					</section>
-
-					<section data-auto-animate>
 						<div>
-							<img class="stack fade-up" src="figures/job_talk/arrow_10.svg" style="position: fixed; top: 342px; left: 312px; " />
-						</div>
-						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 110px; left: 30px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 310px; left: 30px; width: 150px;" />
-						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 10px; left: 30px; width: 150px;" />
-
-						<div class="image-container" style="position: fixed; top: 232px; left: 117px; height: 98px; transform: rotate(36deg);">
-							<img class="stack fade-up" src="figures/job_talk/line1.svg">
+							<div class="row fivegrid columnwrapper" style="display: flex; justify-content: space-around; position: absolute; bottom: -280px">
+								<img class="animate__backInLeft" style="position: absolute; height: 160px; width: auto; left: 100%" data-src="figures/CMU/image18.gif" data-delay="700">
+								<img class="animate__backInLeft" style="position: relative; height: 160px; width: auto; left: 240%" src="figures/CMU/image16.gif" data-delay="1600">
+							</div>
 						</div>
 
-						<div class="image-container" style="position:fixed; top: 50px; left: 0px; height: 180px; transform: rotate(-7deg);">
-							<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/line2.svg" />
-						</div>
+                        <img class="animate__fadeInUp" style="position: fixed; height: 50px; width: auto; left: 40px" src="figures/CMU/arrow.svg" data-delay="160">
 
-						<div class="image-container" style="position:fixed; top: 50px; left: 0px; width:260px; transform: rotate(9deg);">
-							<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/line3.svg" />
-						</div>
+                        <div class="fragment" data-fragment-index="1" style="border: 2px solid deeppink; padding: 20px; width: 250px; height: 125px; margin: 20px auto; text-align: center; font-size: 16px; position: absolute; top: -5px; right: 86px">
+                            <p style="text-align: center; font-size: 20px; color: deeppink; margin-top: 145px; font-weight: bold">
+                                Ours, Self-Explanation for RL from Demos, AAAI 24'
+                            </p>
+                        </div>
 
-						<img class="stack fade-up" src="figures/job_talk/human-robot-collaboration.PNG" style="position:fixed; top: 290px; left: 418px; height: 270px;" />
+                        <div class="fragment" data-fragment-index="1" style="border: 2px solid deeppink; padding: 20px; width: 205px; height: 125px; margin: 20px auto; text-align: center; font-size: 16px; position: absolute; top: -5px; right: 553px">
+                            <p style="text-align: center; font-size: 17px; color: deeppink; margin-top: 145px; font-weight: bold">
+                                Ours, Affordance-Aware Imitation Learning, IROS 21'
+                            </p>
+                        </div>
 
-						<div class="columnwrapper fragment" data-fragment-index="1" style="position:fixed; width:800px;height:220px; top: 0px; right: -120px">
-							<img class="noborder" height="250%" src="figures/job_talk/natsgd_intro.svg"/>
-							<p class="reference" style="margin-top: -20px; font-size: medium;">
-								<a href="https://arxiv.org/abs/1712.01949">
-									NatSGD: A Dataset with Speech, Gestures, and Demonstrations <br>for Robot Learning in Natural Human-Robot Interaction</a>, <br>Shrestha, Zha et al., AAAI Workshop, 2023
-							</p>
-						</div>
+                        <div class="fragment" data-fragment-index="1" style="border: 2px solid deeppink; padding: 20px; width: 235px; height: 125px; margin: 20px auto; text-align: center; font-size: 16px; position: fixed; top: 395px; right: 316px">
+                            <p style="text-align: center; font-size: 22px; color: deeppink; margin-top: 145px; font-weight: bold">
+                                Ours, Explainable Planning, AAMAS 19'
+                            </p>
+                        </div>
 
-						<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:800px;height:220px; top: 0px; right: 300px">
-							<img class="noborder" height="650px" src="figures/job_talk/symbol_interface_intro.jpg"/>
-							<p class="reference" style="margin-top: -20px; font-size: medium;">
-								<a href="https://arxiv.org/abs/1812.00301">
-									Symbols as a Lingua Franca for Bridging Human-AI <br>Chasm for Explainable and Advisable AI Systems</a>, <br>Kambhampati, ..., Zha et al., AAAI, 2022
-							</p>
-						</div>
+                    </section>
 
-						<div class="columnwrapper fragment" data-fragment-index="2" style="position:fixed; width:800px;height:310px; bottom: 110px; right: -150px">
-							<img class="noborder" height="650px" src="figures/job_talk/explicable_planning_intro.svg"/>
-							<p class="reference" style="margin-top: -20px; font-size: medium;">
-								<a href="https://arxiv.org/abs/1812.00301">
-									Explicable Planning as Minimizing Distance from Expected Behavior</a>, <br>Kulkarni, Zha et al., AAMAS, 2019
-							</p>
-						</div>
-
-					</section>
 				</section>
-
-<!--#####-->
+<!--####-->
 				<section data-auto-animate>
 					<!-- title slide -->
 					<h2>Part-I: <br>Perception-Action Coupling</h2>
@@ -1423,477 +1360,17 @@
 					</section>
 				</section>
 
-				<section>
-					<h2>Part-III: <br>Human-Robot Collaboration</h2>
-				</section>
-
-				<section data-auto-animate>
-					<!-- title slide -->
-					<h2>NatSGD: A Dataset <span class="no-transform">with</span> <u>S</u>peech, <u>G</u>estures, <span class="no-transform">and</span> <u>D</u>emonstrations <span class="no-transform">for</span> Robot Learning <span class="no-transform">in</span> <u>Nat</u>ural Human-Robot Interaction</h2>
-					<div>
-						<div style="font-size: 32px;">
-							<span>
-								<a href="https://www.snehesh.com/">Snehesh Shrestha</a>,</span>
-							<span>
-								<a href="https://yantianzha.github.io/">Yantian Zha</a>,</span>
-							<span>
-								<a href="https://www.linkedin.com/in/saketh-narayan-banagiri/">Saketh Banagiri</a>,</span>
-							<span>
-								<a href="https://ischool.umd.edu/directory/ge-gao/">Ge Gao</a>,</span>
-							<span>
-								<a href="https://users.umiacs.umd.edu/~fer/">Cornelia Fermüller</a>,</span>
-							<span>
-								<a href="https://robotics.umd.edu/clark/faculty/350/Yiannis-Aloimonos">Yiannis Aloimonos</a></span>
-						</div>
-
-						<div style="display: flex; justify-content: space-around;">
-							<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/image124.jpeg">
-							<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/yantian.png">
-							<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/saketh.jpeg">
-							<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/GeGao.jpg">
-							<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/image122.jpeg">
-							<img style="height: 140px; width: auto;" src="figures/job_talk/image121.jpeg">
-						</div>
-					</div>
-					<div style="height: 70px;">
-						<span style="font-size:0.8em;">University of Maryland, College Park</span>
-					</div>
-
-					<a href="https://www.snehesh.com/natsgd/">
-						<p style="font-family: monospace; font-size: 0.8em;">https://www.snehesh.com/natsgd/</p>
-					</a>
-
-					<img class="stack fade-up" src="figures/job_talk/umd2.webp" style="position:fixed; bottom: 0px; left: 0px; width: 140px;" />
-					<img class="stack fade-up" src="figures/job_talk/aaai23-ws.png" style="position:fixed; bottom: 0px; right: 0px; width: 130px;" />
-
-				</section>
-
-				<section>
-					<h2 class="toptitle">Pass <span class="no-transform">me that</span> PLATE!!!!</h2>
-					<img class="noborder" src="figures/job_talk/natsgd_motivation.svg"
-							style="position:relative; bottom: -140px; width: 100%;" />
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<h2>Understanding Speech-Gesture Commands</h2>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Understanding Speech-Gesture Commands</h2>
-						<img class="noborder" src="figures/job_talk/natsgd4.svg"
-							style="position:relative; bottom: -70px; left: -30px; width: 75%;" />
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Understanding Speech-Gesture Commands</h2>
-						<img class="noborder" src="figures/job_talk/natsgd4.svg"
-							style="position:relative; bottom: -70px; left: 380px; width: 40%;" />
-
-						<div class="text-container" style="position: fixed; top: 16%; left: 0%; width: 90%">
-							<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray"><span style="color: black">Natural Interaction:</span> Robots <span class="lowercase-first-uppercase">understanding speech and gestures can interact more intuitively with humans</span></h4>
-							<h4 class="fragment" data-fragment-index="1" style="text-align: left; color: dimgray"><span style="color: black">Contextual Adaptation:</span> They <span class="lowercase-first-uppercase">can grasp context <br>better, leading to more accurate responses <br>and task execution</span></h4>
-							<h4 class="fragment" data-fragment-index="2" style="text-align: left; color: dimgray"><span style="color: black">Increased Efficiency:</span> Parsing <span class="lowercase-first-uppercase">multiple <br>communication modalities enables quicker <br>action and reduces errors</span></h4>
-							<h4 class="fragment" data-fragment-index="3" style="text-align: left; color: dimgray"><span style="color: black">Accessibility and Inclusivity:</span> Dual-capability <span class="lowercase-first-uppercase">caters to a broader user base, including those with disabilities or language barriers</span></h4>
-						</div>
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<h2>NatSGD Overview</h2>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">NatSGD Overview</h2>
-						<img class="noborder" src="figures/job_talk/natsgd1.svg"
-							style="position:relative; bottom: 20px; width: 45%;" />
-					</section>
-
-					<section data-auto-animate>
-						<h2>NatSGD Overview</h2>
-						<img class="noborder" src="figures/job_talk/natsgd1.svg"
-							style="position:relative; bottom: 0px; left: -30px; width: 25%;" />
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd2.svg"
-							style="position:relative; bottom: 0px; left: 0px; width: 28%;" />
-						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/natsgd3.svg"
-							style="position:relative; bottom: -30px; left: -20px; width: 40%;" />
-					</section>
-
-					<section data-auto-animate>
-						<h2>NatSGD Overview</h2>
-						<h4 style="color: dimgray">18 <span class="lowercase-first-uppercase">individuals instruct a robot using natural speech and gestures</span></h4>
-						<h4 class="fragment" data-fragment-index="0" style="color: dimgray">A <span class="lowercase-first-uppercase">robot expert guides the robot using multimodal instructions during expert demonstration recordings</span></h4>
-						<img class="noborder" src="figures/job_talk/18_humans.svg" />
-
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle"> NatSGD Data</h2>
-
-						<img class="noborder" src="figures/job_talk/natsgd_dataset.png" style="position: fixed; top: 155px; left: 30px; "/>
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd_dataset_tag.svg" style="position: fixed; top: 97px; left: 30px; "/>
-
-						<div class="fragment" data-fragment-index="2" style="position: fixed; top: 175px; left: -3px; ">
-							<video width="100%" controls autoplay muted>
-								<source src="figures/job_talk/media1.mp4" type="video/mp4">
-							</video>
-						</div>
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<h2>Benchmark Task: <br>Multi-modal Task Understanding</h2>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Benchmark Task: <br>Multi-modal Task Understanding</h2>
-						<img class="noborder" src="figures/job_talk/natsgd5.svg"
-							style="position:fixed; bottom: 80px; left: 300px; width: 250px; z-index: 1" />
-						<img class="noborder" src="figures/job_talk/baxter_1.svg"
-							style="position:fixed; bottom: 80px; left: 500px; width: 550px;" />
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Benchmark Task: <br>Multi-modal Task Understanding</h2>
-						<img class="noborder" src="figures/job_talk/natsgd5.svg"
-							style="position:fixed; bottom: 80px; left: 100px; width: 250px; z-index: 1" />
-						<img class="noborder" src="figures/job_talk/baxter_1.svg"
-							style="position:fixed; bottom: 80px; left: 700px; width: 550px;" />
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd6.svg"
-							style="position:fixed; bottom: 180px; left: 400px; width: 390px;" />
-					</section>
-
-<!--					<section data-auto-animate>-->
-<!--						<h2 class="toptitle">Benchmark Task: <br>Multi-modal Task Understanding</h2>-->
-<!--						<img class="noborder" src="figures/job_talk/natsgd5.svg"-->
-<!--							style="position:fixed; bottom: 80px; left: 100px; width: 250px; z-index: 1" />-->
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd6.svg"-->
-<!--							style="position:fixed; bottom: 180px; left: 400px; width: 390px;" />-->
-
-<!--						<p style="position: fixed; top: 340px; right: 0px; width: 450px">-->
-<!--							<span class="fragment" style="font-size: 36px; text-align: left;" data-fragment-index="0">-->
-<!--								<b>Robots' Task Understanding:</b>-->
-<!--							</span>-->
-<!--						</p>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/question_mark.svg"-->
-<!--						style="position:fixed; bottom: 40px; right: 120px; width: 230px;" />-->
-
-<!--					</section>-->
-
-					<section data-auto-animate>
-						<h2>How <span class="no-transform">to</span> Represent “Task Understanding”?</h2>
-					</section>
-
-					<section data-auto-animate>
-						<img class="noborder" src="figures/job_talk/task_representation_example.svg"/>
-					</section>
-
-					<section class="fig-container"
-						data-fig-id="fig-diagram1"
-						data-file="diagram/diagram_natsgd_tree.html">
-					</section>
-
-<!--					<section class="fig-container"-->
-<!--						data-fig-id="fig-diagram2"-->
-<!--						data-file="diagram/diagram_natsgd_automata.html">-->
-<!--					</section>-->
-
-					<section data-auto-animate>
-						<h2>Linear Temporal Logic (LTL)</h2>
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/LTL.png" />
-					</section>
-
-<!--					<section data-auto-animate>-->
-<!--						<h2>Automata</h2>-->
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd_automata.svg" />-->
-<!--					</section>-->
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Linear Temporal Logic (LTL) Annotations</h2>
-						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray">We <span class="lowercase-first-uppercase">annotated a total </span><span style="color: deeppink;">736 LTL formulae</span> <span class="lowercase-first-uppercase">for 1143 pairs of speech texts and gestures</span></h4>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Linear Temporal Logic (LTL) Annotations</h2>
-						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray">Better <span class="lowercase-first-uppercase">leverage the power of language models</span></h4>
-						<h4 class="fragment" data-fragment-index="1" style="text-align: left; color: dimgray">Better <span class="lowercase-first-uppercase">connect to other logic reasoning and planning systems</span></h4>
-						<h4 class="fragment" data-fragment-index="2" style="text-align: left; color: dimgray">LTL <span class="lowercase-first-uppercase">and</span> Automata <span class="lowercase-first-uppercase">can convert to each other </span></h4>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Neural Network Framework: <br>Multi-modal Task Understanding</h2>
-						<img class="noborder" src="figures/job_talk/natsgd_framework.svg"
-							style="position:fixed; bottom: 80px; left: 200px; width: 950px;" />
-
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Neural Network Framework: <br>Multi-modal Task Understanding</h2>
-						<img class="noborder" src="figures/job_talk/natsgd_framework.svg"
-							style="position:fixed; bottom: 120px; left: 50px; width: 650px;" />
-						<img class="noborder" src="figures/job_talk/natsgd_framework_1.svg"
-							style="position:fixed; bottom: 140px; right: 0px; width: 550px;" />
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<h2>NatSGD Evaluation</h2>
-					</section>
-
-<!--					<section data-auto-animate>-->
-<!--						<h2 class="toptitle">NatSGD Evaluation</h2>-->
-<!--						<img class="noborder" src="figures/job_talk/natsgd7.svg"-->
-<!--							style="position:fixed; bottom: 10px; left: 30px; width: 500px;" />-->
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/natsgd88.svg"-->
-<!--							style="position:fixed; top: 100px; right: -50px; width: 800px;" />-->
-<!--						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/natsgd9.png"-->
-<!--							style="position:fixed; top: 320px; right: -50px; width: 800px;" />-->
-<!--						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/natsgd10.png"-->
-<!--							style="position:fixed; top: 170px; right: 100px; width: 1000px;" />-->
-<!--						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/natsgd11.png"-->
-<!--							style="position:fixed; top: 440px; right: -50px; width: 800px; z-index: 1;" />-->
-<!--						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/natsgd12.png"-->
-<!--							style="position:fixed; top: 185px; right: 250px; width: 800px;" />-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<h2>NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<h2>NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>-->
-<!--						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/spot_score.svg"/>-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<h2 class="toptitle">NatSGD <span style="color: deeppink">Evaluation Metrics</span></h2>-->
-<!--						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: dimgray">LTL <span class="lowercase-first-uppercase">formulas express temporal properties in a concise, human-readable way, while automata represent these properties in a more structured, machine-readable format</span></h4>-->
-<!--						<h4 class="fragment" data-fragment-index="1" style="text-align: left; color: dimgray">Automata-based <span class="lowercase-first-uppercase">approaches may offer greater efficiency and scalability for large or complex systems than directly manipulating LTL formulas</span></h4>-->
-<!--					</section>-->
-
-					<section>
-						<h2>LTL Prediction Scores</h2>
-						<div style="height: 480px;">
-							<canvas data-chart="bar" data-chart-src="chart/NatSGD_Results.csv">
-								{
-									"data": {
-										"datasets": [{ "backgroundColor": "#0f0" }]
-									},
-									"options": {
-										"scales": {
-											"y": {
-												"stacked": true,
-												"ticks": {
-													"stepSize": 0.01,
-													"callback": function(value, index, values) {
-														// Format tick values as needed
-														return value.toFixed(2); // Example: format to two decimal places
-													}
-												}
-											},
-											"x": {
-												"stacked": true
-											}
-										}
-									}
-								}
-							</canvas>
-						</div>
-
-
-						<div>
-							<span>
-								<p style="font-size:0.8em; position: relative; left: 150px; bottom: 45px; text-align: left">Speech Only</p></span>
-							<span>
-								<p style="font-size:0.8em; position: relative; left: 550px; bottom: 110px; text-align: left">Gestures Only</p></span>
-							<span>
-								<p style="font-size:0.8em; position: relative; right: -960px; bottom: 175px; text-align: left">Speech + Gestures</p></span>
-
-						</div>
-					</section>
-				</section>
-
-				<section>
-					<section data-auto-animate>
-						<h2>Future Directions</h2>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left">Limitations:</h4>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left">Limitations:</h4>
-						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
-						<h4 style="text-align: left">Opportunities:</h4>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
-						<h4 style="text-align: left">Opportunities:</h4>
-						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Expand <span class="lowercase-first-uppercase">data collection to encompass a wider range of human interactions, diverse environments, varied tasks, multiple languages, and more</span></h5>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
-						<h4 style="text-align: left">Opportunities:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Expand <span class="lowercase-first-uppercase">data collection to encompass a wider range of human interactions, diverse environments, varied tasks, multiple languages, and more</span></h5>
-						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">2. Integrate <span class="lowercase-first-uppercase">human interjection scenarios during robot's task execution -- this may require the robot to pause, orient towards the human, recover from the interruption, and adapt its plan accordingly</span></h5>
-					</section>
-
-					<section data-auto-animate>
-						<h2 class="toptitle">Future Directions</h2>
-						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
-						<h4 style="text-align: left">Opportunities:</h4>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Expand <span class="lowercase-first-uppercase">data collection to encompass a wider range of human interactions, diverse environments, varied tasks, multiple languages, and more</span></h5>
-						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">2. Integrate <span class="lowercase-first-uppercase">human interjection scenarios during robot's task execution -- this may require the robot to pause, orient towards the human, recover from the interruption, and adapt its plan accordingly</span></h5>
-						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">3. Utilize <span class="lowercase-first-uppercase">the NatSGD Dataset for addressing a wide array of learning challenges in human-robot interaction</span></h5>
-					</section>
-				</section>
-
-
 <!--				####-->
 				<section>
-					<section>
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="0">Perception-Action Coupling</h4>
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="1">Perception-Planning Coupling</h4>
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="2">Self-Explanation Guided Learning</h4>
-						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="3">Human-Robot Interaction Learning</h4>
-						<h2 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="4" style="color: deeppink;">What's Next?</h2>
-					</section>
-
-<!--					<section data-auto-animate>-->
-<!--						<img class="noborder" height="550px" src="figures/job_talk/future_1.png" />-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<img class="noborder" src="figures/job_talk/future_1.png" style="position: relative; left: 400px; bottom: -200px; width: 500px"/>-->
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/arrow_11.svg" style="position: relative; left: -100px; bottom: 50px; width: 100px"/>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="1" style="position: relative; bottom: 300px; left: 250px; width: 600px;">-->
-<!--							<p style="font-size: 0.7em; color: deeppink">Acting as bridges connecting neural network learners with external resources</p>-->
-<!--						</div>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/arrow_12.svg" style="position: absolute; left: 300px; bottom: 460px; width: 100px"/>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="3" style="position: relative; bottom: 250px; left: 50px; width: 300px;">-->
-<!--							<img src="figures/image19.png" alt="Image Icon" style="position: relative; top: 15px; left: -165px; height: 76px; ">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: deeppink; font-size: 26px; text-align: left;">-->
-<!--							Self-Explain with cutting-edge photorealistic and robust physics engines as background knowledge-->
-<!--							</span>-->
-<!--						</div>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/arrow_13.svg" style="position: absolute; left: 450px; bottom: 430px; width: 90px"/>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="5" style="position: relative; bottom: 370px; left: 400px; width: 300px;">-->
-<!--							<img src="figures/image19.png" alt="Image Icon" style="position: relative; top: 15px; left: -165px; height: 76px; ">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: deeppink; font-size: 26px; text-align: left;">-->
-<!--							Self-Explain with video-language foundation models that encode human social knowledge-->
-<!--							</span>-->
-<!--						</div>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="6" style="position: relative; bottom: 200px; left: 0px; width: 1400px;">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: black; font-size: 26px; text-align: left;">-->
-<!--							Collaborating with 3 Students and 2 faculty members, wrote 1 grant proposal, and writing another proposal-->
-<!--							</span>-->
-<!--						</div>-->
-
-
-
-<!--&lt;!&ndash;						<div data-animate data-load="figures/job_talk/arrow_11.svg" style="position: relative; left: 300px; bottom: 250px; height: 10px;">&ndash;&gt;-->
-
-<!--&lt;!&ndash;						</div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;						<div class="svg-container">&ndash;&gt;-->
-<!--&lt;!&ndash;							&lt;!&ndash; SVG arrow &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;							<svg id="myArrow" xmlns="figures/job_talk/arrow_11.svg" viewBox="0 0 200 200">&ndash;&gt;-->
-<!--&lt;!&ndash;								<path id="arrowPath" d="M 2371.07 1354.98 2060.46 1048.5 2040.86 1068.36 2040.33 989.438 2119.26 988.911 2099.66 1008.77 2410.27 1315.26" stroke="black" stroke-width="2" fill="none"/>&ndash;&gt;-->
-<!--&lt;!&ndash;							</svg>&ndash;&gt;-->
-<!--&lt;!&ndash;						</div>&ndash;&gt;-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<img class="noborder" height="550px" src="figures/job_talk/future_1.png"/>-->
-<!--					</section>-->
-
-<!--					<section data-auto-animate>-->
-<!--						<img class="noborder" src="figures/job_talk/future_1.png" style="position: relative; left: -200px; bottom: -100px; width: 500px"/>-->
-<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/arrow_14.svg" style="position: relative; left: -200px; bottom: 150px; width: 200px"/>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="1" style="position: relative; bottom: 350px; left: 900px; width: 300px;">-->
-<!--							<img src="figures/image19.png" alt="Image Icon" style="position: relative; top: 15px; left: -165px; height: 76px; ">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: deeppink; font-size: 26px; text-align: left;">-->
-<!--							Training Dynamics Foundation Models that are both Generalizable and Customziable-->
-<!--							</span>-->
-<!--						</div>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/arrow_12.svg" style="position: absolute; left: 860px; bottom: 160px; width: 100px"/>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/image10.png" style="position: absolute; left: 710px; bottom: 20px; width: 150px"/>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/arrow_13.svg" style="position: absolute; left: 1100px; bottom: 140px; width: 85px"/>-->
-
-<!--						<img class="noborder fragment" data-fragment-index="5" src="figures/job_talk/image12.jfif" style="position: absolute; left: 1110px; bottom: -5px; width: 145px"/>-->
-
-<!--						<div class="text-container fragment" data-fragment-index="6" style="position: relative; bottom: 0px; left: 0px; width: 1200px;">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: black; font-size: 26px; text-align: left;">-->
-<!--							Mentoring 3 Students, collaborating with 2 faculty members, and writing 1 Grant Proposal-->
-<!--							</span>-->
-<!--						</div>-->
-
-<!--					</section>-->
+					<section data-auto-animate>
+						<img src="figures/CMU/AAIL_Hex.svg" alt="Image" style="width: 45%;">
+						<img src="figures/CMU/SERL_Hex.svg" alt="Image" style="width: 45%;">
+ 					</section>
 
 					<section data-auto-animate>
-						<img class="noborder" height="550px" src="figures/job_talk/future_1.png"/>
-					</section>
-
-					<section data-auto-animate>
-						<img class="noborder" src="figures/job_talk/future_1.png" style="position: relative; left: -300px; bottom: -100px; width: 500px"/>
-						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/arrow_14.svg" style="position: relative; left: -400px; bottom: 150px; width: 100px"/>
-
-						<div class="text-container fragment" data-fragment-index="1" style="position: relative; bottom: 290px; left: 600px; width: 300px;">
-							<img src="figures/image19.png" alt="Image Icon" style="position: relative; top: 15px; left: -165px; height: 76px; ">
-							<span style="position: absolute; top: 47%; left: 4%; color: deeppink; font-size: 26px; text-align: left;">
-							Novel Cognitive Intelligence
-							</span>
-						</div>
-
-						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/arrow_14.svg" style="position: relative; left: 230px; bottom: 370px; width: 100px"/>
-
-						<div class="text-container fragment" data-fragment-index="3" style="position: relative; bottom: 500px; left: 970px; width: 300px;">
-							<img src="figures/image19.png" alt="Image Icon" style="position: relative; top: 15px; left: -165px; height: 76px; ">
-							<span style="position: absolute; top: 47%; left: 4%; color: deeppink; font-size: 26px; text-align: left;">
-							Novel Robots <br>(New Morphologies, Kinematics, Controllers, Functions, Simulators, etc.)
-							</span>
-						</div>
-
-						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/arrow_14.svg" style="position: relative; left: 340px; bottom: 750px; width: 100px; rotate: 180deg"/>
-
-						<img class="noborder fragment" data-fragment-index="5" src="figures/job_talk/subsea_manufacturing.svg" style="position: relative; left: 30px; bottom: 500px; width: 220px; left: 180px"/>
-
-<!--						<div class="text-container fragment" data-fragment-index="5" style="position: relative; bottom: 200px; left: 0px; width: 600px;">-->
-<!--							<span style="position: absolute; top: 47%; left: 4%; color: black; font-size: 26px; text-align: left;">-->
-<!--							Mentoring 5 Students, and writing 3 Grant Proposals-->
-<!--							</span>-->
-<!--						</div>-->
-
+						<img src="figures/CMU/AAIL_Hex.svg" alt="Image" style="width: 30%;">
+						<img src="figures/CMU/SERL_Hex.svg" alt="Image" style="width: 30%;">
+ 						<img src="figures/CMU/AAM_Hex.svg" alt="Image" style="width: 37%;">
 
 					</section>
 
@@ -1908,14 +1385,15 @@
 									<a href="https://in.linkedin.com/in/abhinav-bhamidipati">Abhinav Bhamidipati*</a>,</span>
 								<span>
 									<a href="https://www.linkedin.com/in/yashveerjain">Yashveer Jain*</a>,</span>
-								<span>
-									<a href="">Sri Kiran Kommaraju*</a>,</span>
+
 								<span>
 									<a href="https://www.linkedin.com/in/william-yang-66ab84221">William Wang Yang*</a>,</span>
 								<span>
+									<a href="">Sri Kiran Kommaraju</a>,</span>
+								<span>
 									<a href="https://yantianzha.github.io/">Yantian Zha</a></span>
 
-								<p style="font-family: monospace; font-size: 0.8em;">* The first five authors contributed equally, and are listed in alphabetical order.</p>
+								<p style="font-family: monospace; font-size: 0.8em;">* The first four authors contributed equally, and are listed in alphabetical order.</p>
 								<p style="font-size: 0.8em;">University of Maryland, College Park</p>
 
 							</div>
@@ -1934,7 +1412,7 @@
 
 
 						<img class="stack fade-up" src="figures/job_talk/umd2.webp" style="position:fixed; bottom: 0px; left: 0px; width: 140px;" />
-						<img class="stack fade-up" src="figures/job_talk/work_in_progress.jpg" style="position:fixed; bottom: 0px; right: 0px; width: 160px;" />
+						<img class="stack fade-up" src="figures/job_talk/work_under_review.svg" style="position:fixed; bottom: 0px; right: 0px; width: 160px;" />
 
 					</section>
 
