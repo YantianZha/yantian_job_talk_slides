@@ -1,0 +1,1861 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+		<!-- Load content plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
+
+		<!-- Fullscreen plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/fullscreen/plugin.js"></script>
+
+		<!--Math Equation Editing-->
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+
+		<script type="text/javascript" src="dist/reveal.js"></script>
+		<script src="plugin/appearance/appearance.js"></script>
+
+		<!-- Load content plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/loadcontent/plugin.js"></script>
+		<!-- Animate plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/animate/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js"></script>
+
+<!--		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>-->
+<!--			<script>-->
+<!--			$(function(){-->
+<!--			  $("#includedContent").load("diagram/diagram2.html");-->
+<!--			});-->
+<!--			</script>-->
+
+		<!--Diagram Plugin-->
+<!--		<link rel="stylesheet" href="reveal.js/css/reveal.css">-->
+<!--        <link rel="stylesheet" href="reveal.js/css/theme/black.css">-->
+
+<!--		&lt;!&ndash;[if lt IE 9]>-->
+<!--		<script src="reveal.js/lib/js/html5shiv.js"></script>-->
+<!--		<![endif]&ndash;&gt;-->
+
+		<title>Learning from Ambiguous Demonstrations with Self-Explanation Guided Reinforcement Learning</title>
+<!--		<input type="text" autocapitalize="off">-->
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="dist/custom.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
+
+		<link rel="stylesheet" href="../plugin/diagram/revealjs-diagram.css">
+		<!-- Theme used for syntax highlighted code -->
+<!--		<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		<!-- Theme used for syntax highlighted code -->
+	<!--		<link rel="stylesheet" href="plugin/highlight/atom-one-dark.css" />-->
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-auto-animate>
+					<!-- title slide -->
+					<div class="text-container" style="position: relative; top: 80px">
+						<h3>Perceiving, Acting, Planning, and Self-Explaining: A Cognitive Quartet <span class="no-transform">for</span> Future Manufacturing</h3>
+
+						<div>
+							<a href="https://yantianzha.github.io/">Yantian Zha</a>
+						</div>
+
+						<div>
+							<span style="font-size:0.8em;">Adjunct Lecturer & Postdoctoral Associate<br>Computer Science Department & Maryland Robotics Center<br>University of Maryland, College Park</span>
+						</div>
+					</div>
+
+					<img src="figures/job_talk/manufacturing_example_1.svg" style="position: relative; top: 80px; width: 40%; opacity: 0.4;">
+
+				</section>
+
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h4 style="display: none;"> A Cognitive Quartet</h4>
+					    <video width="100%" controls>
+        					<source src="figures/job_talk/quartet%20example.mp4" type="video/mp4">
+    					</video>
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/image3.gif" style="position:fixed; top: 0px; left: 30px; width: 100%;" />
+						<img class="stack fade-up fragment" data-fragment-index="0" src="figures/job_talk/perception.PNG" style="position:fixed; top: 130px; left: 210px; width: 110px;" />
+						<img class="stack fade-up fragment" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 75px; left: 440px; width: 110px;" />
+						<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/planning.PNG" style="position:fixed; top: 80px; right: 450px; width: 130px;" />
+						<img class="stack fade-up fragment" data-fragment-index="3" src="figures/job_talk/self-explanation.PNG" style="position:fixed; top: 100px; right: 185px; width: 130px;" />
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 160px; left: 460px; width: 150px; z-index: 1" />
+						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 160px; right: 460px; width: 150px; z-index: 1" />
+						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 160px; left: 460px; width: 150px; z-index: 1" />
+						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 160px; right: 460px; width: 150px; z-index: 1" />
+						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 63%; opacity: 0.3; z-index: 0">
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 60px; width: 150px;" />
+						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 25%;">
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />-->
+<!--						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />-->
+<!--						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />-->
+<!--						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />-->
+<!--						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />-->
+<!--						<img src="figures/job_talk/manufacturing_example.svg" alt="Image" style="width: 25%;">-->
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<div style="width:100%; height:300px; display: flex; justify-content: center;">
+							<div>
+								<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+								<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
+								<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
+							</div>
+
+							<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:800px;height:300px; top: 190px;">
+								<img class="noborder" height="650px" src="figures/image20.gif"/>
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+										Affordance-Aware Imitation Learning</a>, <br>Zha et al., IROS, 2022
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div style="width:100%; height:300px; display: flex; justify-content: center;">
+							<div>
+								<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+								<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
+								<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
+							</div>
+
+							<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:890px; height:150px; top: 20px; left: 250px">
+								<img class="noborder" height="650px" src="figures/job_talk/distr2vec.png"/>
+								<p class="reference" style="margin-top: -20px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/1712.01949">
+										Recognizing Plans by Learning Embeddings from Observed Action Distributions</a>, <br>Zha et al., AAMAS, 2018
+								</p>
+							</div>
+
+							<div class="columnwrapper fragment" data-fragment-index="1" style="position:fixed; width:800px;height:350px; top: 260px;">
+								<img class="noborder" height="650px" src="figures/job_talk/prda.svg"/>
+								<p class="reference" style="margin-top: -20px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/1812.00301">
+										Plan-Recognition-driven Attention Modeling for Visual Recognition</a>, <br>Zha et al., AAAI-WS, 2019
+								</p>
+							</div>
+
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
+						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 260px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/triangle.svg" style="position:fixed; top: 60px; left: 260px; width: 650px;" />
+						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 180px; left: 290px; width: 120px;" />
+						<img class="stack fade-up" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 304px; height: 155px;" />
+						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 90px; left: 290px; width: 120px;" />
+						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 80px; right: 540px; width: 120px;" />
+						<img class="stack fade-up" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 130px; right: 640px; width: 230px;" />
+						<img class="stack fade-up" src="figures/job_talk/arrow.svg" style="position:fixed; bottom: 130px; right: 400px; width: 230px;" />
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 260px; width: 150px;" />
+						<div class="fragment" data-fragment-index="0">
+							<img class="stack fade-up" src="figures/image3.png" style="position:fixed; top: 100px; left: 420px; width: 170px;" />
+							<img class="stack fade-up" src="figures/image4.png" style="position:fixed; top: 100px; left: 90px; width: 260px;" />
+							<img class="stack fade-up" src="figures/image5.png" style="position:fixed; top: 100px; left: 380px; width: 20.5px;" />
+							<img class="stack fade-up" src="figures/image6.gif" style="position:fixed; bottom: 63px; left: 90px; width: 500px;" />
+							<p class="reference" style="margin-top: -10px; font-size: x-large; position: fixed; left: 600px;">
+								<a href="https://github.com/YantianZha/SERLfD">
+									SERLfD: Learning from Ambiguous Demonstrations <br>with Self-Explanation Guided Reinforcement Learning</a>, <br>Zha et al., AAAI, 2024
+							</p>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/self-explanation.PNG" style="position:fixed; bottom: 60px; right: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
+						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="2"><span style="color: deeppink;">Fundamental Robotics Challenges</span></h4>
+						<h4 class="fragment animate__backInLeft" data-delay="200" data-fragment-index="3"><span style="color: deeppink;">Human-Robot Collaboration Challenges</span></h4>
+					</section>
+
+					<section data-auto-animate>
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/perception.PNG" style="position:fixed; top: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/action.PNG" style="position:fixed; top: 60px; right: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 60px; left: 60px; width: 150px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_h.svg" style="position:fixed; top: 75px; right: 200px; width: 860px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/coupling_v.svg" style="position:fixed; top: 220px; left: 63px; height: 246px;" />
+						<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/human-robot-collaboration.PNG" style="position:fixed; top: 300px; left: 563px; height: 200px;" />
+						<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/arrow_10.svg" style="position:fixed; transform: rotate(47deg); top: 232px; left: 390px; height: 150px;" />
+						<div>
+							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line1.svg" style="position:fixed; top: 130px; left: 203px; height: 100px;" />
+							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line2.svg" style="position:fixed; bottom: 200px; left: 190px; height: 267px; transform: rotate(7deg);" />
+							<img class="stack fade-up fragment" data-fragment-index="2" src="figures/job_talk/line3.svg" style="position:fixed; top: 130px; left: 435px; height:100px;" />
+						</div>
+
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<img class="stack fade-up" src="figures/job_talk/arrow_10.svg" style="position: fixed; top: 342px; left: 312px; " />
+						</div>
+						<img class="stack fade-up" src="figures/job_talk/perception.PNG" style="position:fixed; top: 110px; left: 30px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/action.PNG" style="position:fixed; top: 310px; left: 30px; width: 150px;" />
+						<img class="stack fade-up" src="figures/job_talk/planning.PNG" style="position:fixed; bottom: 10px; left: 30px; width: 150px;" />
+
+						<div class="image-container" style="position: fixed; top: 232px; left: 117px; height: 98px; transform: rotate(36deg);">
+							<img class="stack fade-up" src="figures/job_talk/line1.svg">
+						</div>
+
+						<div class="image-container" style="position:fixed; top: 50px; left: 0px; height: 180px; transform: rotate(-7deg);">
+							<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/line2.svg" />
+						</div>
+
+						<div class="image-container" style="position:fixed; top: 50px; left: 0px; width:260px; transform: rotate(9deg);">
+							<img class="stack fade-up" data-fragment-index="1" src="figures/job_talk/line3.svg" />
+						</div>
+
+						<img class="stack fade-up" src="figures/job_talk/human-robot-collaboration.PNG" style="position:fixed; top: 290px; left: 418px; height: 270px;" />
+
+						<div class="columnwrapper fragment" data-fragment-index="1" style="position:fixed; width:800px;height:220px; top: 0px; right: -120px">
+							<img class="noborder" height="250%" src="figures/job_talk/natsgd_intro.svg"/>
+							<p class="reference" style="margin-top: -20px; font-size: medium;">
+								<a href="https://arxiv.org/abs/1712.01949">
+									NatSGD: A Dataset with Speech, Gestures, and Demonstrations <br>for Robot Learning in Natural Human-Robot Interaction</a>, <br>Shrestha, Zha et al., AAAI Workshop, 2023
+							</p>
+						</div>
+
+						<div class="columnwrapper fragment" data-fragment-index="0" style="position:fixed; width:800px;height:220px; top: 0px; right: 300px">
+							<img class="noborder" height="650px" src="figures/job_talk/symbol_interface_intro.jpg"/>
+							<p class="reference" style="margin-top: -20px; font-size: medium;">
+								<a href="https://arxiv.org/abs/1812.00301">
+									Symbols as a Lingua Franca for Bridging Human-AI <br>Chasm for Explainable and Advisable AI Systems</a>, <br>Kambhampati, ..., Zha et al., AAAI, 2022
+							</p>
+						</div>
+
+						<div class="columnwrapper fragment" data-fragment-index="2" style="position:fixed; width:800px;height:310px; bottom: 110px; right: -150px">
+							<img class="noborder" height="650px" src="figures/job_talk/explicable_planning_intro.svg"/>
+							<p class="reference" style="margin-top: -20px; font-size: medium;">
+								<a href="https://arxiv.org/abs/1812.00301">
+									Explicable Planning as Minimizing Distance from Expected Behavior</a>, <br>Kulkarni, Zha et al., AAMAS, 2019
+							</p>
+						</div>
+
+					</section>
+				</section>
+
+<!--#####-->
+				<section data-auto-animate>
+					<!-- title slide -->
+					<h2>Part-I: <br>Perception-Action Coupling</h2>
+				</section>
+
+<!--				<section>-->
+<!--					<img src="figures/job_talk/gibson_affordance.png">-->
+<!--				</section>-->
+
+				<section data-auto-animate>
+					<!-- title slide -->
+					<h2>Contrastively Learning Visual Attention <span class="no-transform">as</span> Affordance Cues <span class="no-transform">from</span> Demonstrations <span class="no-transform">for</span> Robotic Grasping </h2>
+					<div>
+						<div>
+							<span>
+								<a href="https://yantianzha.github.io/">Yantian Zha</a>,</span>
+							<span>
+								<a href="https://sbhambr1.github.io/">Siddhant Bhambri</a>,</span>
+							<span>
+								<a href="https://guansuns.github.io/">Lin Guan</a>,</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-around;">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/yantian.png">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/job_talk/image117.jpeg">
+							<img style="height: 200px; width: auto;" src="figures/image7.jpeg">
+						</div>
+					</div>
+					<div style="height: 70px;">
+						<span style="font-size:0.8em;">Arizona State University</span>
+					</div>
+
+					<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+						<p style="font-family: monospace; font-size: 0.8em;">https://sites.google.com/asu.edu/affordance-aware-imitation/project</p>
+					</a>
+
+					<img class="stack fade-up" src="figures/job_talk/asu.png" style="position:fixed; bottom: 25px; left: 0px; width: 200px;" />
+					<img class="stack fade-up" src="figures/job_talk/iros21.png" style="position:fixed; bottom: 40px; right: 0px; width: 200px;" />
+
+				</section>
+
+				<section>
+					<video width="100%" controls autoplay>
+						<source src="figures/job_talk/baxter_example.mp4" type="video/mp4">
+					</video>
+					<img class="stack fade-up" src="figures/job_talk/baxter.png" style="position:fixed; top: 0px; left: 0px; width: 250px;" />
+					<img class="stack fade-up" src="figures/job_talk/baxter_author.png" style="position:fixed; top: 0px; right: 0px; width: 250px;" />
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Learning Affordance <span class="no-transform">from</span> Demonstrations</h2>
+					</section>
+
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Learning Affordance <span class="no-transform">from</span> Demonstrations</h2>-->
+<!--						<div style="width:100%;height:300px; display:flex; justify-content: center;">-->
+
+<!--							<div class="columnwrapper" style="width:800px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/job_talk/LAfD_1.svg" />-->
+<!--								<img class="noborder" height="650px" src="figures/job_talk/LAfD_2.svg" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://www.cs.ou.edu/~fagg/papers/2006/degranville_etal_2006_affordance.pdf">-->
+<!--										Learning Grasp Affordances Through Human Demonstration</a>, <br>Granville et al., ICDL, 2006-->
+<!--								</p>-->
+<!--							</div>-->
+
+<!--							<div class="columnwrapper" style="width:650px;height:300px;">-->
+<!--								<img class="noborder" height="650px" src="figures/job_talk/LAfD_3.svg" />-->
+<!--								<img class="noborder" height="650px" src="figures/job_talk/LAfD_4.svg" />-->
+<!--								<p class="reference" style="margin-top: -10px; font-size: x-large;">-->
+<!--									<a href="https://ieeexplore.ieee.org/document/6630635">-->
+<!--										Learning a dictionary of prototypical grasp-predicting parts from grasping experience</a>, <br>Renaud, et al., ICRA, 2013-->
+<!--								</p>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Learning Affordance <span class="no-transform">from</span> Demonstrations</h2>
+						<div style="width:100%;height:300px; display:flex; justify-content: center;">
+
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_2.svg" />
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_1.svg" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://www.cs.ou.edu/~fagg/papers/2006/degranville_etal_2006_affordance.pdf">
+										Learning Grasp Affordances Through Human Demonstration</a>, <br>Granville et al., ICDL, 2006
+								</p>
+							</div>
+
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_3.svg" />
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_4.svg" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://ieeexplore.ieee.org/document/6630635">
+										Learning a dictionary of prototypical grasp-predicting parts from grasping experience</a>, <br>Renaud, et al., ICRA, 2013
+								</p>
+							</div>
+
+<!--							<div class="fragment" data-fragment-index="1" style="z-index: 2; position: fixed; top: 70px">-->
+<!--								<img class="noborder" height="610px" src="figures/job_talk/LAfD_5.png"/>-->
+<!--							</div>-->
+
+<!--							<div class="fragment" data-fragment-index="2" style="z-index: 2; position: fixed; top: 165px; left: 440px">-->
+<!--								<img class="noborder" height="200px" src="figures/job_talk/LAfD_66.svg"/>-->
+<!--							</div>-->
+
+<!--							<div class="fragment" data-fragment-index="3" style="z-index: 2; position: fixed; top: 140px">-->
+<!--								<img class="noborder" height="150px" src="figures/job_talk/LAfD_77.svg"/>-->
+<!--							</div>-->
+
+<!--							<div class="fragment" data-fragment-index="4" style="z-index: 2; position: fixed; top: 205px; left: 440px">-->
+<!--								<img class="noborder" height="200px" src="figures/job_talk/LAfD_88.svg"/>-->
+<!--							</div>-->
+
+<!--							<div class="fragment" data-fragment-index="5" style="z-index: 3; position: fixed; top: 400px; left: 440px">-->
+<!--								<img class="noborder" height="114px" src="figures/job_talk/LAfD_9.svg"/>-->
+<!--							</div>-->
+
+<!--							<div class="fragment" data-fragment-index="6" style="z-index: 2; position: fixed; top: 470px; left: 518px">-->
+<!--								<img class="noborder" height="160px" src="figures/job_talk/LAfD_10.svg"/>-->
+<!--							</div>-->
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Learning Affordance <span class="no-transform">from</span> Demonstrations</h2>
+						<div style="width:100%;height:300px; display:flex; justify-content: center;">
+
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_1.svg" />
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_2.svg" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://www.cs.ou.edu/~fagg/papers/2006/degranville_etal_2006_affordance.pdf">
+										Learning Grasp Affordances Through Human Demonstration</a>, <br>Granville et al., ICDL, 2006
+								</p>
+							</div>
+
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_3.svg" />
+								<img class="noborder" height="650px" src="figures/job_talk/LAfD_4.svg" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://ieeexplore.ieee.org/document/6630635">
+										Learning a dictionary of prototypical grasp-predicting parts from grasping experience</a>, <br>Renaud, et al., ICRA, 2013
+								</p>
+							</div>
+
+							<p class="fragment" style="position: fixed; top: 580px; left: 50px; text-align: left">✅ <span style="color: dimgrey;">Eliminates the need for expensive affordance labeling</span></p>
+
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="columnwrapper"
+							style="z-index: 2; width:650px;height:200px;position: fixed; top: 190px; left:65px;">
+							<img class="noborder" height="130px" src="figures/job_talk/LAfD_1.svg" />
+							<img class="noborder" height="130px" src="figures/job_talk/LAfD_2.svg" />
+							<img class="noborder" height="130px" src="figures/job_talk/LAfD_3.svg" />
+							<img class="noborder" height="130px" src="figures/job_talk/LAfD_4.svg" />
+						</div>
+
+						<p style="position: fixed; z-index: 2; top: 430px; left: 80px; font-size: 20px; text-align: left">✅ <span style="color: dimgrey;">Eliminates the need for expensive affordance labeling</span></p>
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/image25.jpeg"
+							style="position:fixed; z-index: 1; top: 105px; left: 70px; width: 790px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/medium_up_arrow.svg"
+							style="position:fixed; z-index: 3; top: 330px; left: 730px; width: 60px;" />
+						<p class="fragment" data-fragment-index="1"
+						   style="position: fixed; top: 470px; left: 70px; width: 1200px; font-size: 30px; text-align: left; color: dimgrey;">❌ <span style="color: dimgrey;">A motion planner is required to translate affordance predictions into grasp execution, <br>keeping affordance learning and policy construction/learning as distinct processes.</span></p>
+
+					</section>
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Insights <span class="no-transform">from</span> Human Cognition</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Insights <span class="no-transform">from</span> Human Cognition</h2>
+						<img src="figures/image30.jpeg" alt="Image" style="width: 60%;">
+					</section>
+
+					<section data-auto-animate style="position: relative;">
+						<div style="position: relative;">
+
+							<p class="fragment">
+								<h2 class="toptitle">Insights <span class="no-transform">from</span> Human Cognition</h2>
+								<img src="figures/image30.jpeg" alt="Image" style="width: 70%; opacity: 0.5;">
+
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 32%; left: 18%; height: 76px; z-index: 2;">
+								<span style="position: absolute; top: 47%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;">
+								Affordance and attention share a close association, influencing how humans interact with objects
+								</span>
+							</p>
+
+							<p class="fragment">
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 55%; left: 18%; height: 76px; z-index: 2;" data-fragment-index="2">
+								<span style="position: absolute; top: 70%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;" data-fragment-index="2">
+									Human attention naturally gravitates towards object parts essential for task completion
+								</span>
+							</p>
+						</div>
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Visual Attention <span class="no-transform">as</span> Affordance Cues</h2>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Visual Attention <span class="no-transform">as</span> Affordance Cues</h2>-->
+<!--						<h4 style="text-align: left">Affordances <span class="lowercase-first-uppercase">are often implicitly encoded in visual attention</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Visual Attention <span class="no-transform">as</span> Affordance Cues</h2>-->
+<!--						<h4 style="text-align: left; color: dimgrey;">Affordances <span class="lowercase-first-uppercase">are often implicitly encoded in visual attention</span></h4>-->
+<!--						<h4 style="text-align: left">Visual <span class="lowercase-first-uppercase">attention directs focus towards relevant features indicating potential actions</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Why Predict Affordance Cues?</h2>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Why Predict Affordance Cues?</h2>-->
+<!--						<h4 style="text-align: left">Predicting <span class="lowercase-first-uppercase">affordance cues (salient visual features) is more efficient than predicting entire affordances</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Why Predict Affordance Cues?</h2>-->
+<!--						<h4 style="text-align: left; color: dimgrey;">Predicting <span class="lowercase-first-uppercase">affordance cues (salient visual features) is more efficient than predicting entire affordances</span></h4>-->
+<!--						<h4 style="text-align: left">Bridging the Gap: Affordance <span class="lowercase-first-uppercase">cues serve as a vital intermediary, facilitating the seamless integration between perception and policy construction</span></h4>-->
+<!--					</section>-->
+				</section>
+
+<!--##				-->
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Merging <span class="no-transform">the</span> learning <span class="no-transform">of</span> affordance-cues <span class="no-transform">and</span> policy learning</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Merging <span class="no-transform">the</span> learning <span class="no-transform">of</span> affordance-cues <span class="no-transform">and</span> policy learning</h2>
+						<img src="figures/job_talk/image31.svg" alt="Image" style="width: 65%;">
+						<h4 class="fragment" data-fragment-index="0" style="text-align: left; color: deeppink">Predicting <span class="lowercase-first-uppercase">affordance cues (salient visual features) is more efficient than predicting entire affordances</span></h4>					</section>
+
+					<section data-auto-animate>
+						<img class="noborder" src="figures/intro_env_crop/cropScreenshot%20from%202021-07-20%2020-31-28.png"
+							style="position:fixed; top: 8.5%; right: 700px; width: 260px;" />
+						<img class="noborder" src="figures/intro_env_crop/cropScreenshot%20from%202021-07-20%2020-30-50.png"
+							style="position:fixed; bottom: 8.5%; right: 700px; width: 260px;" />
+						<img class="noborder" src="figures/job_talk/env.png"
+							style="position:fixed; top: 2.5%; right: 750px; width: 170px;" />
+
+						<img class="noborder fragment" data-fragment-index="0" src="figures/job_talk/step1.png"
+							style="position:fixed; top: 2.5%; right: 575px; width: 110px;" />
+						<img class="noborder fragment" data-fragment-index="0" src="figures/intro_ill_crop/crop20210224-005410_depth_0.png"
+							style="position:fixed; top: 8.5%; right: 560px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="0" src="figures/intro_ill_crop/crop20210228-015849_depth_0.png"
+							style="position:fixed; bottom: 27.95%; right: 560px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="1" src="figures/intro_ill_crop/crop20210222-230341_affordance_0.png"
+							style="position:fixed; top: 27.95%; right: 560px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="1" src="figures/intro_ill_crop/crop20210228-015849_affordance_0.png"
+							style="position:fixed; bottom: 8.5%; right: 560px; width: 136px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/step2.png"
+							style="position:fixed; top: 2.5%; right: 435px; width: 110px;" />
+						<img class="noborder fragment" data-fragment-index="2" src="figures/intro_ill_crop/crop20210224-005410_depth_1.png"
+							style="position:fixed; top: 8.5%; right: 420px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="2" src="figures/intro_ill_crop/crop20210224-005410_depth_1.png"
+							style="position:fixed; bottom: 27.95%; right: 420px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="3" src="figures/intro_ill_crop/crop20210222-230341_affordance_1.png"
+							style="position:fixed; top: 27.95%; right: 420px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="3" src="figures/intro_ill_crop/crop20210228-015849_affordance_1.png"
+							style="position:fixed; bottom: 8.5%; right: 420px; width: 136px;" />
+
+						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/step3.png"
+							style="position:fixed; top: 2.5%; right: 295px; width: 110px;" />
+						<img class="noborder fragment" data-fragment-index="4" src="figures/intro_ill_crop/crop20210224-005410_depth_2.png"
+							style="position:fixed; top: 8.5%; right: 280px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="4" src="figures/intro_ill_crop/crop20210228-015849_depth_2.png"
+							style="position:fixed; bottom: 27.95%; right: 280px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="5" src="figures/intro_ill_crop/crop20210222-230341_affordance_2.png"
+							style="position:fixed; top: 27.95%; right: 280px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="5" src="figures/intro_ill_crop/crop20210228-015849_affordance_2.png"
+							style="position:fixed; bottom: 8.5%; right: 280px; width: 136px;" />
+
+						<img class="noborder fragment" data-fragment-index="6" src="figures/job_talk/step4.png"
+							style="position:fixed; top: 2.5%; right: 155px; width: 110px;" />
+						<img class="noborder fragment" data-fragment-index="6" src="figures/intro_ill_crop/crop20210224-005410_depth_3.png"
+							style="position:fixed; top: 8.5%; right: 140px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="6" src="figures/intro_ill_crop/crop20210228-015849_depth_3.png"
+							style="position:fixed; bottom: 27.95%; right: 140px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="7" src="figures/intro_ill_crop/crop20210222-230341_affordance_3.png"
+							style="position:fixed; top: 27.95%; right: 140px; width: 136px;" />
+						<img class="noborder fragment" data-fragment-index="7" src="figures/intro_ill_crop/crop20210228-015849_affordance_3.png"
+							style="position:fixed; bottom: 8.5%; right: 140px; width: 136px;" />
+					</section>
+
+					<section data-auto-animate>
+						<img class="noborder" src="figures/intro_env_crop/cropScreenshot%20from%202021-07-20%2020-31-28.png"
+							style="position:fixed; top: 8.5%; right: 580px; width: 260px;" />
+						<img class="noborder" src="figures/intro_env_crop/cropScreenshot%20from%202021-07-20%2020-30-50.png"
+							style="position:fixed; bottom: 8.5%; right: 580px; width: 260px;" />
+						<img class="noborder" src="figures/job_talk/env.png"
+							style="position:fixed; top: 2.5%; right: 630px; width: 170px;" />
+
+						<img class="noborder" src="figures/job_talk/step1.png"
+							style="position:fixed; top: 2.5%; right: 455px; width: 110px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210224-005410_depth_0.png"
+							style="position:fixed; top: 8.5%; right: 440px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_depth_0.png"
+							style="position:fixed; bottom: 27.95%; right: 440px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210222-230341_affordance_0.png"
+							style="position:fixed; top: 27.95%; right: 440px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_affordance_0.png"
+							style="position:fixed; bottom: 8.5%; right: 440px; width: 136px;" />
+
+						<img class="noborder" src="figures/job_talk/step2.png"
+							style="position:fixed; top: 2.5%; right: 315px; width: 110px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210224-005410_depth_1.png"
+							style="position:fixed; top: 8.5%; right: 300px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210224-005410_depth_1.png"
+							style="position:fixed; bottom: 27.95%; right: 300px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210222-230341_affordance_1.png"
+							style="position:fixed; top: 27.95%; right: 300px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_affordance_1.png"
+							style="position:fixed; bottom: 8.5%; right: 300px; width: 136px;" />
+
+						<img class="noborder" src="figures/job_talk/step3.png"
+							style="position:fixed; top: 2.5%; right: 175px; width: 110px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210224-005410_depth_2.png"
+							style="position:fixed; top: 8.5%; right: 160px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_depth_2.png"
+							style="position:fixed; bottom: 27.95%; right: 160px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210222-230341_affordance_2.png"
+							style="position:fixed; top: 27.95%; right: 160px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_affordance_2.png"
+							style="position:fixed; bottom: 8.5%; right: 160px; width: 136px;" />
+
+						<img class="noborder" src="figures/job_talk/step4.png"
+							style="position:fixed; top: 2.5%; right: 35px; width: 110px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210224-005410_depth_3.png"
+							style="position:fixed; top: 8.5%; right: 20px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_depth_3.png"
+							style="position:fixed; bottom: 27.95%; right: 20px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210222-230341_affordance_3.png"
+							style="position:fixed; top: 27.95%; right: 20px; width: 136px;" />
+						<img class="noborder" src="figures/intro_ill_crop/crop20210228-015849_affordance_3.png"
+							style="position:fixed; bottom: 8.5%; right: 20px; width: 136px;" />
+
+<!--						<img class="noborder" src="figures/job_talk/Can%20you%20propose%20any%20strategies%20for%20discovering%20affordance%20cues%20based%20on%20your%20insights.png.svg"-->
+<!--							style="position:fixed; bottom: 50%; left: 20px; width: 395px;" />-->
+
+						<div class="text-container fragment" data-fragment-index="0" style="position:fixed; bottom: 50%; left: 20px; width: 410px;">
+							<p class="animate__fadeInDown" data-split="words" data-delay="400" style="text-align: left; color: dimgrey; font-size: 0.8em; font-weight: bold">Can <span class="lowercase-first-uppercase">you propose any strategies for discovering affordance-cues?</span></p>
+						</div>
+
+						<div class="text-container fragment" data-fragment-index="1" style="position:fixed; bottom: 28%; left: 20px; width: 410px;">
+							<p class="animate__fadeInDown" data-split="words" data-delay="400" style="text-align: left; color: deeppink; font-size: 0.8em; font-weight: bold">Ask Yourself: <br>What <span class="lowercase-first-uppercase">distinguishes the two trajectories from each other</span></p>
+						</div>
+
+					</section>
+				</section>
+
+<!--				<section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2>Contrastive Learning</h2>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Contrastive Learning</h2>-->
+<!--						<h4 class="animate__backInLeft" data-delay="200" style="text-align: left">Contrastive <span class="lowercase-first-uppercase">learning is a machine learning technique aimed at understanding the underlying features of a dataset without labels</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Contrastive Learning</h2>-->
+<!--						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Contrastive <span class="lowercase-first-uppercase">learning is a machine learning technique aimed at understanding the underlying features of a dataset without labels</span></h4>-->
+<!--						<h4 class="animate__backInLeft" data-delay="200" style="text-align: left">It <span class="lowercase-first-uppercase">achieves this by instructing the model to discern similarities and differences between data points</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<div class="content-container">-->
+<!--							<h2 class="toptitle">Contrastive Learning</h2>-->
+<!--							<div class="text-container" style="position: fixed; top: 16%; left: 0%; width: 100%">-->
+<!--								<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Contrastive <span class="lowercase-first-uppercase">learning is a machine learning technique aimed at understanding the underlying features of a <span style="color: deeppink;">dataset without labels</span></span></h4>-->
+<!--								<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">It <span class="lowercase-first-uppercase">achieves this by instructing the model to discern similarities and differences between data points</span></h4>-->
+<!--							</div>-->
+
+<!--							<div class="image-container" style="position: fixed; bottom: -10%; left: 11%;">-->
+<!--								<img class="animate__backInLeft" data-delay="200" class="noborder" src="figures/job_talk/affordance_categories.svg" style="width: 50%;" />-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<div class="content-container">-->
+<!--							<h2 class="toptitle">Contrastive Learning</h2>-->
+<!--							<div class="text-container" style="position: fixed; top: 16%; left: 0%; width: 100%">-->
+<!--								<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Contrastive <span class="lowercase-first-uppercase">learning is a machine learning technique aimed at understanding the underlying features of a <span style="color: deeppink;">dataset without labels</span></span></h4>-->
+<!--								<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">It <span class="lowercase-first-uppercase">achieves this by instructing the model to discern similarities and differences between data points</span></h4>-->
+<!--							</div>-->
+
+<!--							<div class="image-container" style="position: fixed; bottom: -10%; left: -11%;">-->
+<!--								<img class="noborder" src="figures/job_talk/affordance_categories.svg" style="width: 40%;" />-->
+<!--							</div>-->
+
+<!--							<div class="image-container fragment" data-fragment-index="0" style="position: fixed; bottom: -14%; left: 29%;">-->
+<!--								<img class="noborder" src="figures/job_talk/arrow_5.svg" style="width: 23%;" />-->
+<!--							</div>-->
+
+<!--							<div class="image-container fragment" data-fragment-index="1" style="position: fixed; bottom: -10%; left: 47%;">-->
+<!--								<img class="noborder" src="figures/job_talk/data_difference1.svg" style="width: 30%;" />-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h3>The Limitations <span class="no-transform">of</span> Directly Employing Triplet Loss</h3>-->
+
+<!--						<img class="noborder" src="figures/job_talk/triplet_loss.svg"-->
+<!--							style="position:fixed; bottom: 5%; left: 25%; width: 50%;" />-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h3 class="toptitle">The Limitations <span class="no-transform">of</span> Directly Employing Triplet Loss</h3>-->
+<!--						<h4 style="text-align: left">Recall: Affordances <span class="lowercase-first-uppercase">are featured in the interactions between a robot and an object, resulting in desired effects</span></h4>-->
+
+<!--						<img class="noborder" src="figures/job_talk/triplet_loss.svg"-->
+<!--							style="position:fixed; bottom: 5%; left: 25%; width: 50%;" />-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h3 class="toptitle">The Limitations <span class="no-transform">of</span> Directly Employing Triplet Loss</h3>-->
+<!--						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Recall: Affordances <span class="lowercase-first-uppercase">are featured in the interactions between a robot and an object, resulting in desired effects</span></h4>-->
+<!--						<h4 class="animate__backInLeft" data-delay="200" style="text-align: left">The <span class="lowercase-first-uppercase">demonstration data contains irrelevant information for affordance discovery</span></h4>-->
+
+<!--						<img class="noborder" src="figures/job_talk/triplet_loss.svg"-->
+<!--							style="position:fixed; bottom: 5%; left: 25%; width: 45%;" />-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h3 class="toptitle">The Limitations <span class="no-transform">of</span> Directly Employing Triplet Loss</h3>-->
+<!--						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Recall: Affordances <span class="lowercase-first-uppercase">are featured in the interactions between a robot and an object, resulting in desired effects</span></h4>-->
+<!--						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">The <span class="lowercase-first-uppercase">demonstration data contains irrelevant information for affordance discovery</span></h4>-->
+<!--						<h4 class="animate__backInLeft" data-delay="200" style="text-align: left">It <span class="lowercase-first-uppercase">may condition on noisy context factors (e.g. initial states, obstacles)</span></h4>-->
+<!--						<img class="noborder" src="figures/job_talk/triplet_loss.svg"-->
+<!--							style="position:fixed; bottom: 5%; left: 25%; width: 38%;" />-->
+<!--					</section>-->
+<!--				</section>-->
+
+				<section>
+					<section data-auto-animate>
+						<h2>Affordance-Aware Imitation Learning</h2>
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Learn Two Types <span class="no-transform">of</span> Embeddings</h2>-->
+<!--						<h4 style="text-align: left">Affordance Embedding $Z^A$ <span class="lowercase-first-uppercase">for demo trajectory $\tau^*$: $$z_\tau^A=F^A(\{(s_t,a^*_{t-1})\}^n_{t=m}|_{\tau^*})$$</span></h4>-->
+<!--						<h4 class="fragment" data-fragment-index="0" style="text-align: left">Observation Embedding <span style="text-transform: none;">$Z^{o,A}_t$</span> <span class="lowercase-first-uppercase">for demo trajectory $\tau^*$: $$z_{t,\tau}^{o,A}=F^O(s_t,o_t,a^*_{t-1}|_{\tau^*})$$</span></h4>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Learn Two Types <span class="no-transform">of</span> Embeddings</h2>-->
+<!--						<h4 style="text-align: left; color: dimgrey;">Affordance Embedding $Z^A$ <span class="lowercase-first-uppercase">for demo trajectory $\tau^*$: $$z_\tau^A=F^A(\{(s_t,a^*_{t-1})\}^n_{t=m}|_{\tau^*})$$</span></h4>-->
+<!--						<h4 style="text-align: left; color: dimgrey;">Observation Embedding <span style="text-transform: none;">$Z^{o,A}_t$</span> <span class="lowercase-first-uppercase">for demo trajectory $\tau^*$: $$z_{t,\tau}^{o,A}=F^O(s_t,o_t,a^*_{t-1}|_{\tau^*})$$</span></h4>-->
+<!--						<h4 style="text-align: left; color: deeppink;">How <span class="lowercase-first-uppercase">to couple their learning together?</span></h4>-->
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Guiding Observation Embedding Learning <span class="no-transform">through</span> Affordance Embeddings</h2>
+						<img class="noborder fragment animate__backInUp" data-delay="200" data-fragment-index="0" src="figures/job_talk/AAIL_Graph_0.svg"
+							style="position:fixed; bottom: 0px; right: 435px; width: 395px;" />
+						<img class="noborder fragment animate__backInDown" data-delay="200" data-fragment-index="0" src="figures/job_talk/AAIL_Graph_11.svg"
+							style="position:fixed; top: 28.5%; right: 480px; width: 360px;" />
+						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/AAIL_Graph_2.svg"
+							style="position:fixed; top: 39%; right: 650px; width: 16px;" />
+						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/AAIL_Graph_3.svg"
+							style="position:fixed; top: 43%; right: 635px; width: 46px;" />
+						<img class="noborder fragment" data-fragment-index="1" src="figures/job_talk/AAIL_Graph_4.svg"
+							style="position:fixed; bottom: 18.3%; right: 539px; width: 255px;" />
+						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/AAIL_Graph_7.svg"
+							style="position:fixed; top: 47.5%; right: 500px; width: 296px;" />
+						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/AAIL_Graph_6.svg"
+							style="position:fixed; bottom: 24.6%; right: 484px; width: 303px;" />
+						<img class="noborder fragment" data-fragment-index="5" src="figures/job_talk/AAIL_Graph_5.svg"
+							style="position:fixed; bottom: 27%; right: 487px; width: 298px;" />
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Guiding Observation Embedding Learning <span class="no-transform">through</span> Affordance Embeddings</h2>
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_0.svg"
+							style="position:fixed; bottom: 0px; right: 835px; width: 395px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_11.svg"
+							style="position:fixed; top: 28.5%; right: 880px; width: 360px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_2.svg"
+							style="position:fixed; top: 39%; right: 1050px; width: 16px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_3.svg"
+							style="position:fixed; top: 43%; right: 1035px; width: 46px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_4.svg"
+							style="position:fixed; bottom: 18.3%; right: 939px; width: 255px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_7.svg"
+							style="position:fixed; top: 47.5%; right: 900px; width: 296px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_6.svg"
+							style="position:fixed; bottom: 24.6%; right: 884px; width: 303px;" />
+						<img class="noborder" src="figures/job_talk/AAIL_Graph_5.svg"
+							style="position:fixed; bottom: 27%; right: 887px; width: 298px;" />
+
+						<div class="text-container fragment" data-fragment-index="0" style="position: fixed; top: 36%; right: -25%; width: 100%">
+							<h3>Coupled Triplet Loss</h3>
+						</div>
+
+<!--						<div class="image-container fragment" data-fragment-index="1" style="position: fixed; bottom: -10%; right: -30%;">-->
+<!--							<img class="noborder" src="figures/job_talk/coupled_triplet_loss.svg" style="width: 60%;" />-->
+<!--						</div>-->
+
+						<div class="text-container fragment" data-fragment-index="2" style="position: fixed; top: 46%; right: -38%; width: 100%">
+							<h4 style="text-align: left; color: deeppink;">Enhance <span style="text-transform: none;">the</span> Relevance <span style="text-transform: none;">of $Z^{o,A}_t$ to</span> Affordances</h4>
+						</div>
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<h2>Simultaneously learning affordance cues <span class="no-transform">and</span> a grasping policy</h2>-->
+<!--					</section>-->
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Simultaneously learning affordance cues <span class="no-transform">and</span> a grasping policy</h2>-->
+<!--						<img class="noborder animate__backInLeft fragment" data-delay="200" data-fragment-index="0" src="figures/job_talk/AAIL_framework_1.svg"-->
+<!--							style="position:fixed; top: 28%; right: 365px; width: 35%;" />-->
+<!--						<img class="noborder animate__backInDown fragment" data-delay="200" data-fragment-index="1" src="figures/job_talk/AAIL_framework_22.svg"-->
+<!--							style="position:fixed; top: 30%; left: 29px; width: 28.1%;" />-->
+<!--						<img class="noborder fragment" data-fragment-index="2" src="figures/job_talk/AAIL_framework_33.svg"-->
+<!--							style="position:fixed; bottom: 8px; left: 65px; width: 21%;" />-->
+<!--						<img class="noborder fragment" data-fragment-index="3" src="figures/job_talk/AAIL_framework_44.svg"-->
+<!--							style="position:fixed; top: 35%; right: 355px; width: 62%;" />-->
+<!--						<img class="noborder fragment" data-fragment-index="4" src="figures/job_talk/AAIL_framework_5.svg"-->
+<!--							style="position:fixed; bottom: 8px; right: 400px; width: 56%;" />-->
+<!--						<img class="noborder fragment" data-fragment-index="5" src="figures/job_talk/AAIL_framework_66.svg"-->
+<!--							style="position:fixed; top: 72%; right: 73px; width: 30%;" />-->
+<!--					</section>-->
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Evaluation</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Evaluation</h2>
+						<img class="noborder" src="figures/job_talk/evaluation_setting.svg"/>
+						<h4>A Franka Panda Arm <span class="no-transform">in the</span> PyBullet simulator</h4>
+					</section>
+
+					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">
+						<h4 style="color: white; text-align: left">Full Model: Siamese + Coupled Triplet Loss</h4>
+
+						<div class="columnwrapper" style="width:400px;height:200px;">
+							<img class="stack fade-up" src="figures/job_talk/Franka-Emika-Panda-robot.png" style="position:fixed; top: 30px; right: 90px; width: 178px; z-index: 2;" />
+							<img class="stack fade-up" src="figures/job_talk/image38.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />
+							<img class="stack fade-up" src="figures/job_talk/image14.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />
+						</div>
+					</section>
+
+<!--					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">-->
+<!--&lt;!&ndash;						<h3 style="color: white">Ablation Study Models</h3>&ndash;&gt;-->
+<!--						<h4 style="color: white; text-align: left">Ablation 1 (Right): Siamese + Triplet Loss</h4>-->
+<!--						<h4 style="color: white; text-align: left">Ablation 2 (Left): Without Contrastive Learning</h4>-->
+
+<!--						<div class="columnwrapper" style="width:400px;height:200px;">-->
+<!--							<img class="stack fade-up" src="figures/job_talk/Franka-Emika-Panda-robot.png" style="position:fixed; top: 30px; right: 90px; width: 178px; z-index: 2;" />-->
+<!--							<img class="stack fade-up" src="figures/AAIL/image36.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />-->
+<!--							<img class="stack fade-up" src="figures/AAIL/image36.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />-->
+<!--						</div>-->
+<!--					</section>-->
+
+					<section>
+						<h2>Success Rate (Percentage)</h2>
+						<div style="height:480px; ">
+							<canvas data-chart="bar" data-chart-src="chart/AAIL_Results.csv">
+								{
+								"data" : {
+								"datasets" : [{ "backgroundColor": "#0f0" }]
+								},
+								"options": { "scales": { "x": { "stacked": true }, "y": { "stacked": true } } }
+								}
+
+							</canvas>
+
+							<span>
+								<p style="font-size:0.5em; position: relative; left: 40px; bottom: 45px; text-align: left">Full Model: <br>Siamese + Coupled Triplet Loss</p></span>
+							<span>
+								<p style="font-size:0.5em; position: relative; left: 390px; bottom: 120px; text-align: left">Ablation 1: <br>Siamese + Triplet Loss</p></span>
+							<span>
+								<p style="font-size:0.5em; position: relative; right: -680px; bottom: 195px; text-align: left">Ablation 2: <br>Without Contrastive Learning</p></span>
+							<span>
+								<a href="https://github.com/irom-lab/PAC-Imitation" style="font-size:0.5em; position: relative; right: -490px; bottom: 284px">Baseline Behavioral Cloning</a></span>
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Future Directions</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Although <span class="lowercase-first-uppercase">affordance-cue learning enhances conscious perception and control, it does not leverage any domain-specific knowledge to maximize its benefits</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Although <span class="lowercase-first-uppercase">affordance-cue learning enhances conscious perception and control, it does not leverage any domain-specific knowledge to maximize its benefits</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Although <span class="lowercase-first-uppercase">affordance-cue learning enhances conscious perception and control, it does not leverage any domain-specific knowledge to maximize its benefits</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Investigating <span class="lowercase-first-uppercase">multiple levels of interactions holds promise for uncovering richer affordance cues, particularly in tasks involving tool usage</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Although <span class="lowercase-first-uppercase">affordance-cue learning enhances conscious perception and control, it does not leverage any domain-specific knowledge to maximize its benefits</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Investigating <span class="lowercase-first-uppercase">multiple levels of interactions holds promise for uncovering richer affordance cues, particularly in tasks involving tool usage</span></h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">2. Tailoring <span class="lowercase-first-uppercase">affordance-cue prediction to different high-level task contexts and linking it with LLM-based planners could improve performance and adaptability</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Although <span class="lowercase-first-uppercase">affordance-cue learning enhances conscious perception and control, it does not leverage any domain-specific knowledge to maximize its benefits</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Investigating <span class="lowercase-first-uppercase">multiple levels of interactions holds promise for uncovering richer affordance cues, particularly in tasks involving tool usage</span></h5>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">2. Tailoring <span class="lowercase-first-uppercase">affordance-cue prediction to different high-level task contexts and linking it with LLM-based planners could improve performance and adaptability</span></h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">3. Incorporating <span class="lowercase-first-uppercase">coupled triplet loss into other robot learning problems, where the guidance from high-level learning to low-level learning is crucial</span></h5>
+					</section>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Part-II: <br>Self-Explanation-guided Robot Learning</h2>
+				</section>
+
+				<section data-auto-animate>
+					<!-- title slide -->
+					<h2>Learning <span class="no-transform">from</span> Ambiguous Demonstrations <span class="no-transform">with</span> Self-Explanation Guided Reinforcement Learning</h2>
+					<div>
+						<div>
+							<span>
+								<a href="https://yantianzha.github.io/">Yantian Zha</a><sup
+								style="font-size:0.5em;">1,*</sup>,</span>
+							<span>
+								<a href="https://guansuns.github.io/">Lin Guan</a><sup
+								style="font-size:0.5em;">2,*</sup>,</span>
+							<span>
+								<a href="https://rakaposhi.eas.asu.edu/">Subbarao Kambhampati</a><sup
+								style="font-size:0.5em;">2</sup>,</span>
+							</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-around;">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/yantian.png">
+							<img style="height: 200px; width: auto; margin-right: -460px;" src="figures/lin.png">
+							<img style="height: 200px; width: auto;" src="figures/rao.jpg">
+						</div>
+					</div>
+					<div style="height: 70px;">
+						<span style="font-size:0.8em;"><sup style="font-size:0.7em;"> 1</sup>University of Maryland, College Park,</span>
+						<span style="font-size:0.8em;"><sup style="font-size:0.7em;"> 2</sup>Arizona State University</span>
+					</div>
+
+					<a href="https://github.com/YantianZha/SERLfD">
+						<p style="font-family: monospace; font-size: 0.8em;">https://github.com/YantianZha/SERLfD</p>
+					</a>
+
+					<img class="stack fade-up" src="figures/job_talk/umd.png" style="position:fixed; bottom: 15px; left: 0px; width: 130px;" />
+					<img class="stack fade-up" src="figures/job_talk/aaai24.jfif" style="position:fixed; bottom: 15px; right: 0px; width: 130px;" />
+
+				</section>
+
+				<!-- motivate skill learning -->
+				<section>
+					<h2 class="toptitle">Robot Task Learning</h2>
+<!--					<section data-auto-animate>-->
+<!--						&lt;!&ndash; title slide &ndash;&gt;-->
+<!--&lt;!&ndash;						<h1 class="toptitle">Robot Task Learning</h1>&ndash;&gt;-->
+<!--						<div>-->
+<!--							&lt;!&ndash; clipport peract stuff &ndash;&gt;-->
+<!--							<div style="display: flex; justify-content: space-around;">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image13.gif">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image14.gif">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image15.gif">-->
+<!--							</div>-->
+<!--							<div style="display: flex; justify-content: space-around;">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image16.gif">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image17.gif">-->
+<!--								<img style="height: 200px; width: auto;" src="figures/image18.gif">-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</section>-->
+
+					<section data-auto-animate>
+						<h4 ><span style="color: dimgrey;">How <span class="lowercase-first-uppercase">to convey the <b style="color: black;">task knowledge</b> to robots?</span></span></h4>
+					</section>
+
+					<section data-auto-animate>
+						<h4><span style="color: dimgrey;">How <span class="lowercase-first-uppercase">to convey the <b>task knowledge</b> to robots?</span></span></h4>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <b>(demonstrations)</b><br></span>
+					</section>
+
+					<section data-auto-animate>
+						<h4><span style="color: dimgrey;">How <span class="lowercase-first-uppercase">to convey the <b>task knowledge</b> to robots?</span></span></h4>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <b>(demonstrations)</b><br></span>
+						<img src="figures/image19.png" alt="Image Icon" style="height: 76px; width: auto; vertical-align: middle;"> <span style="color: deeppink;">Convey the task via <b>(rewards)</b></span>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2><span style="color: deeppink;">RL + LfD</span>: Reinforcement Learning <span class="no-transform">from</span> Demonstrations <span style="color: deeppink;">(RLfD)</span></h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle"><span style="color: deeppink;">RL + LfD</span>: Reinforcement Learning <span class="no-transform">from</span> Demonstrations <span style="color: deeppink;">(RLfD)</span></h2>
+						<div style="width:80%;height:300px; display:flex; justify-content: center;">
+
+							<div class="columnwrapper" style="width:800px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image28.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://sites.google.com/asu.edu/affordance-aware-imitation/project">
+										DAPG</a>, Rajeswaran et al., RSS, 2018
+								</p>
+							</div>
+
+							<div class="columnwrapper" style="width:650px;height:300px;">
+								<img class="noborder" height="650px" src="figures/image29.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									<a href="https://arxiv.org/abs/2105.06411">
+										DDPGfD</a>, Vecerik, 2018
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="position: fixed; top: 580px; left: 50px; text-align: left">✅ <span style="color: dimgrey;">Combine the benefits of RL and LfD – making RL more sample-efficient</span></p>
+
+					</section>
+
+					<section data-auto-animate>
+						<div class="columnwrapper"
+							style="z-index: 2; width:450px;height:200px;position: fixed; top: 175px; left:65px;">
+							<img class="noborder" height="150px" src="figures/image28.gif" />
+							<img class="noborder" height="150px" width="210" src="figures/image29.png" />
+						</div>
+
+						<p style="position: fixed; z-index: 2; top: 390px; left: 80px; font-size: 20px; text-align: left">✅ <span style="color: dimgrey;">Combine the benefits of RL and LfD – making RL more sample-efficient</span></p>
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/image25.jpeg"
+							style="position:fixed; z-index: 1; top: 125px; left: 50px; width: 650px;" />
+
+						<img class="noborder fragment" data-fragment-index="2" src="figures/medium_up_arrow.svg"
+							style="position:fixed; z-index: 3; top: 320px; left: 600px; width: 50px;" />
+						<p class="fragment" data-fragment-index="1"
+							style="position: fixed; top: 450px; left: 450px; width: 600px; font-size: 30px; text-align: left; color: dimgrey;">❌ <span style="color: dimgrey;">Still inefficient to handle ambiguity in demonstrations and environments</span></p>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Insights <span class="no-transform">from</span> Human Cognition</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Insights <span class="no-transform">from</span> Human Cognition</h2>
+						<img src="figures/image30.jpeg" alt="Image" style="width: 60%;">
+					</section>
+
+					<section data-auto-animate style="position: relative;">
+						<div style="position: relative;">
+
+							<p class="fragment">
+								<h2 class="toptitle">Insights <span class="no-transform">from</span> Human Cognition</h2>
+								<img src="figures/image30.jpeg" alt="Image" style="width: 70%; opacity: 0.5;">
+
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 35%; left: 18%; height: 76px; z-index: 2;">
+								<span style="position: absolute; top: 47%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;">
+								Humans are aware and reflective of their own learning
+								</span>
+							</p>
+
+							<p class="fragment">
+								<img src="figures/image19.png" alt="Image Icon" style="position: absolute; top: 55%; left: 18%; height: 76px; z-index: 2;" data-fragment-index="2">
+								<span style="position: absolute; top: 70%; left: 54%; transform: translate(-50%, -50%); color: deeppink; z-index: 2; font-size: 36px; text-align: left; width: 800px;" data-fragment-index="2">
+									Humans instinctively self-explain experiences, covering problem-solving, mistakes, and the actions and outcomes of others
+								</span>
+							</p>
+						</div>
+					</section>
+
+<!--					<section data-auto-animate>-->
+<!--						<h2 class="toptitle">Insights <span class="no-transform">from</span> Human Cognition</h2>-->
+
+<!--						<div class="fragment">-->
+<!--							<img src="figures/image31.gif" alt="Image" style="position: fixed; top: 400px; left: 70px; width: 20%;">-->
+<!--							<img src="figures/support_1.svg" alt="Image" style="position: fixed; top: 450px; left: 135px; width: 6%;">-->
+
+<!--&lt;!&ndash;							<p style="position: absolute; top: 150px; left: 50px; width: 250px; font-size: 30px;">A Successful Case</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    						<hr style="position: absolute; top: 465px; left: 130px; width: 3%; border: none; border-top: 2px dashed whitesmoke; transform-origin: left center; transform: rotate(-45deg);">&ndash;&gt;-->
+<!--&lt;!&ndash;					    	<hr style="position: absolute; top: 490px; left: 130px; width: 3%; border: none; border-top: 2px dashed whitesmoke; transform-origin: left center; transform: rotate(45deg);">&ndash;&gt;-->
+<!--&lt;!&ndash;							<p style="position: absolute; top: 470px; left: 50px; width: 250px; font-size: 20px; color: whitesmoke"><strong>L1</strong></p>&ndash;&gt;-->
+<!--&lt;!&ndash;							<p style="position: absolute; top: 550px; left: 50px; width: 250px; font-size: 20px; color: whitesmoke"><strong>L2</strong></p>&ndash;&gt;-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+<!--&lt;!&ndash;							<hr style="position: absolute; top: 490px; left: 330px; width: 18%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(-45deg);">&ndash;&gt;-->
+<!--							<p style="position: absolute; top: 350px; left: 345px; width: 260px; font-size: 20px; color: deeppink"><strong>Self-Explanation:<br>object-location > object-color</strong></p>-->
+
+<!--							<div style="position: relative;">-->
+<!--								<hr style="position: absolute; top: 400px; left: 330px; width: 18%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(-45deg);">-->
+<!--								<div style="position: absolute; top: 411px; left: 330px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(-45deg);">-->
+<!--									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+<!--							<img src="figures/image32.jpg" alt="Image" style="position: fixed; top: 200px; left: 510px; width: 20%;">-->
+<!--							<img src="figures/support_1.svg" alt="Image" style="position: fixed; top: 277px; left: 585px; width: 4%;">-->
+<!--						</div>-->
+
+
+<!--						<div class="fragment">-->
+<!--							<div style="position: relative;">-->
+<!--								<hr style="position: absolute; top: 200px; left: 770px; width: 6%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">-->
+<!--								<div style="position: absolute; top: 215px; left: 624px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(0deg);">-->
+<!--									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<img src="figures/support_10.png" alt="Image" style="position: fixed; top: 235px; left: 840px; width: 12%;">-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+<!--							<img src="figures/support_2.png" alt="Image" style="position: fixed; top: 235px; left: 940px; width: 27%;">-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+
+<!--							<div style="position: relative;">-->
+<!--								<hr style="position: absolute; top: 330px; left: 1100px; width: 9%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(90deg);">-->
+<!--								<div style="position: absolute; top: 244px; left: 1107px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(90deg);">-->
+<!--									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<p style="position: absolute; top: 460px; left: 980px; width: 255px; font-size: 20px; color: deeppink"><strong>Self-Explanation:<br>object-location < object-color</strong></p>-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+
+<!--							<div style="position: relative;">-->
+<!--								<hr style="position: absolute; top: 480px; left: 925px; width: 4.5%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">-->
+<!--								<div style="position: absolute; top: 509px; left: 1148px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(180deg);">-->
+<!--									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<img src="figures/support_3.svg" alt="Image" style="position: fixed; top: 445px; left: 680px; height: 29%; width: 18%;">-->
+<!--						</div>-->
+
+<!--						<div class="fragment">-->
+<!--							<div style="position: relative;">-->
+<!--								<hr style="position: absolute; top: 480px; left: 610px; width: 5%; border: none; border-top: 2px solid deeppink; transform-origin: left center; transform: rotate(0deg);">-->
+<!--								<div style="position: absolute; top: 509px; left: 833px; width: 18%; height: 100%; transform-origin: left center; transform: rotate(180deg);">-->
+<!--									<div style="position: absolute; top: 50%; right: -5px; width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 10px; border-color: transparent transparent transparent deeppink;"></div>-->
+<!--								</div>-->
+<!--							</div>-->
+
+<!--							<img src="figures/support_11.png" alt="Image" style="position: fixed; top: 515px; left: 490px; width: 11%;">-->
+<!--						</div>-->
+<!--					</section>-->
+
+				</section>
+				<section>
+					<section data-auto-animate>
+						<div class="fragment">
+							<h2 class="toptitle">Background Knowledge: Shared Vocabulary</h2>
+							<img class="stack fade-up" src="figures/image2.jpeg" style="position:fixed; top: 140px; left: 90px; width: 450px;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/image35.png" style="position:fixed; top: 200px; right: 450px; width: 18%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_6.svg" style="position:fixed; top: 220px; left: 320px; width: 30%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_7.svg" style="position:fixed; top: 110px; left: 330px; width: 50%;" />
+							<img class="stack fade-up" src="figures/support_8.svg" style="position:fixed; top: 255px; right: 200px; width: 10.2%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_9.svg" style="position:fixed; top: 207px; right: 329px; width: 3.55%;" />
+						</div>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2>Self-Explanation <span class="no-transform">for</span> RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation <span class="no-transform">for</span> RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+
+							<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;">Robots take human advice</h4>
+
+
+<!--						<h3 style="position: absolute; top: 10px; left: 80px; width: 255px; font-size: 20px; color: black"><strong>Robots take human advice</strong></h3>-->
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation <span class="no-transform">for</span> RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation <span class="no-transform">for</span> RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+						<img class="stack fade-up" src="figures/support_5.png" style="position:fixed; top: 230px; left: 135px; width: 28%;" />
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Self-Explanation <span class="no-transform">for</span> RLfD (<span style="color: deeppink;">SERLfD</span>)</h2>
+						<h4 style="position: absolute; bottom: 120px; left: 80px; width: 500px;"><span style="color: deeppink;">Robots</span> take <span style="color: deeppink;">human</span> advice</h4>
+						<img class="stack fade-up" src="figures/support_11.svg" style="position:fixed; top: 197px; left: 150px; width: 18%;" />
+						<img class="stack fade-up" src="figures/support_5.png" style="position:fixed; top: 230px; left: 135px; width: 28%;" />
+						<img class="stack fade-up" src="figures/support_3.png" style="position:fixed; top: 140px; left: 510px; width: 18%;" />
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_16.png" style="position:fixed; top: 267px; left: 150px; width: 18%;" />
+						</div>
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_6.png" style="position:fixed; top: 300px; left: 102px; width: 9%;" />
+							<img class="stack fade-up" src="figures/support_4.png" style="position:fixed; top: 280px; left: 152px; width: 30%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_14.png" style="position:fixed; top: 338px; left: 102px; width: 15%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_7.png" style="position:fixed; top: 382px; left: 62px; width: 25%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_15.png" style="position:fixed; top: 419px; left: 102px; width: 15%;" />
+							<img class="stack fade-up" src="figures/support_8.png" style="position:fixed; top: 465px; left: 125px; width: 10%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_9.png" style="position:fixed; top: 442px; left: 245px; width: 25%;" />
+						</div>
+
+						<div class="fragment">
+							<img class="stack fade-up" src="figures/support_17.png" style="position:fixed; top: 249px; left: 185px; width: 35%;" />
+							<img class="stack fade-up" src="figures/support_18.png" style="position:fixed; top: 349px; left: 545px; width: 20%;" />
+						</div>
+
+					</section>
+
+
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Evaluation Domains</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Evaluation Domains</h2>
+
+						<div style="width:100%; height:300px; display: flex; justify-content: center;">
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Push-Simple</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image31.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									6 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Push</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image31.gif" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									10 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Robot-Remove-and-Push</b>
+								</p>
+
+								<img class="noborder" height="650px" src="figures/image39.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									20 Predicates <br> Continuous Action Space
+								</p>
+							</div>
+							<div class="columnwrapper" style="width:400px;height:200px;">
+								<p style="margin-top: -10px; font-size: x-large;">
+									<b>Pacman</b>
+								</p>
+								<img class="noborder" height="650px" src="figures/image40.png" />
+								<p class="reference" style="margin-top: -10px; font-size: x-large;">
+									2 Predicates <br> Discrete Action Space
+								</p>
+							</div>
+						</div>
+					</section>
+
+<!--					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">-->
+<!--						<div class="columnwrapper" style="width:400px;height:200px;">-->
+<!--							<img class="stack fade-up" src="figures/image43.png" style="position:fixed; top: 30px; right: 90px; width: 158px; z-index: 2;" />-->
+
+<!--							<img class="stack fade-up" src="figures/image44.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />-->
+<!--							<img class="stack fade-up" src="figures/image44.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />-->
+<!--						</div>-->
+<!--					</section>-->
+
+					<section data-auto-animate style="background-color: black; background-size: cover; background-position: center; width: 100%; height: 100%;">
+						<div class="columnwrapper" style="width:400px;height:200px;">
+							<img class="stack fade-up" src="figures/image43.png" style="position:fixed; top: 30px; right: 90px; width: 158px; z-index: 2;" />
+
+							<img class="stack fade-up" src="figures/image46.gif" style="position:fixed; top: 300px; left: 90px; width: 550px;" />
+							<img class="stack fade-up" src="figures/image48.gif" style="position:fixed; top: 300px; right: 90px; width: 550px;" />
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="columnwrapper" style="width:1300px;height:700px;">
+							<img class="stack fade-up" src="figures/image49.png" style="position: center; width: 1050px; " />
+
+							<img class="stack fade-up" src="figures/support_19.png" style="position:fixed; top: 500px; left: 90px; width: 1050px;" />
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Future Directions</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. The <span class="lowercase-first-uppercase">symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The <span class="lowercase-first-uppercase">symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The <span class="lowercase-first-uppercase">symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Enhance <span class="lowercase-first-uppercase">the self-explanation guided learning mechanism.</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The <span class="lowercase-first-uppercase">symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Enhance <span class="lowercase-first-uppercase">the self-explanation guided learning mechanism.</span></h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">2. Utilize <span class="lowercase-first-uppercase">the self-explanation guided learning to enhance various learning frameworks.</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The <span class="lowercase-first-uppercase">symbolic vocabulary, representing the robots' background knowledge, is pre-defined and finite.</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Enhance <span class="lowercase-first-uppercase">the self-explanation guided learning mechanism.</span></h5>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">2. Utilize <span class="lowercase-first-uppercase">the self-explanation guided learning to enhance various learning frameworks.</span></h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">3. Harness <span class="lowercase-first-uppercase">the power of self-explanation guided learning to address diverse problems and challenges.</span></h5>
+					</section>
+				</section>
+
+<!--				####-->
+				<section>
+					
+					<section data-auto-animate>
+						<!-- title slide -->
+						<h2 style="font-weight: normal"><b style="color: deepskyblue">AAM-SEALS</b>: Developing <b style="color: deepskyblue">A</b>erial-<b style="color: deepskyblue">A</b>quatic, <b style="color: deepskyblue">M</b>anipulators, <span class="no-transform">in</span> <b style="color: deepskyblue">SE</b>a, <b style="color: deepskyblue">A</b>ir, <span class="no-transform">and</span> <b style="color: deepskyblue">L</b>and <b style="color: deepskyblue">S</b>imulator</h2>
+						<div>
+							<div style="font-size: 28px;">
+								<span>
+									<a href="https://www.linkedin.com/in/tomer-atzili-596657265">Tomer Atzili*</a>,</span>
+								<span>
+									<a href="https://in.linkedin.com/in/abhinav-bhamidipati">Abhinav Bhamidipati*</a>,</span>
+								<span>
+									<a href="https://www.linkedin.com/in/yashveerjain">Yashveer Jain*</a>,</span>
+								<span>
+									<a href="">Sri Kiran Kommaraju*</a>,</span>
+								<span>
+									<a href="https://www.linkedin.com/in/william-yang-66ab84221">William Wang Yang*</a>,</span>
+								<span>
+									<a href="https://yantianzha.github.io/">Yantian Zha</a></span>
+
+								<p style="font-family: monospace; font-size: 0.8em;">* The first five authors contributed equally, and are listed in alphabetical order.</p>
+								<p style="font-size: 0.8em;">University of Maryland, College Park</p>
+
+							</div>
+
+							<div style="display: flex; justify-content: space-around; position: relative; bottom: 40px">
+								<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/Tomer.svg">
+								<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/Abhinav.svg">
+								<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/Yash.svg">
+								<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/Sri.svg">
+								<img style="height: 140px; width: auto; margin-right: -460px;" src="figures/job_talk/William.svg">
+								<img style="height: 140px; width: auto;" src="figures/yantian.png">
+							</div>
+						</div>
+
+						<img class="noborder" src="figures/AAM-SEALS/AAM_2.gif" data-autoplay data-loop style="position:absolute; bottom: -150px; left: 360px; width: 550px;" />
+
+
+						<img class="stack fade-up" src="figures/job_talk/umd2.webp" style="position:fixed; bottom: 0px; left: 0px; width: 140px;" />
+						<img class="stack fade-up" src="figures/job_talk/work_in_progress.jpg" style="position:fixed; bottom: 0px; right: 0px; width: 160px;" />
+
+					</section>
+
+
+<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/media6.mp4"-->
+<!--							style="position:fixed; top: 150px; left: 623px; width: 450px;" />-->
+<!--						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/media7.mp4"-->
+<!--							style="position:fixed; top: 150px; left: 623px; width: 450px;" />-->
+
+					<section data-auto-animate="">
+						<img class="noborder" src="figures/AAM-SEALS/AAM_SEAL_1.png"
+							style="position:fixed; top: 10px; left: 450px; width: 350px;" />
+						<img class="noborder fragment" data-fragment-index="1" src="figures/AAM-SEALS/AAM_SEAL_2.svg"
+							style="position:fixed; top: 80px; left: 610px; width: 30px;" />
+						<img class="noborder fragment" data-fragment-index="2" src="figures/AAM-SEALS/AAM_SEAL_3.svg"
+							style="position:fixed; top: 150px; left: 178px; width: 450px;" />
+						<img class="noborder fragment" data-fragment-index="6" src="figures/AAM-SEALS/AAM_SEAL_4.svg"
+							style="position:fixed; top: 150px; left: 623px; width: 450px;" />
+
+						<div class="text-container fragment" data-fragment-index="3" style="position: absolute; top: -10px; left: 30px;">
+						<p style="font-size: 0.6em"><b style="color: deepskyblue">A</b>erial-<b style="color: deepskyblue">A</b>quatic, <b style="color: deepskyblue">M</b>anipulator Design</p>
+
+						</div>
+
+						<div style="position: fixed; top: 25px; left: -3px; ">
+							<video class="fragment" data-fragment-index="4" width="30%" style="position: fixed; bottom: 240px; left: 30px" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/1.mp4" type="video/mp4">
+							</video>
+
+							<video class="fragment" data-fragment-index="5" width="30%" style="position: fixed; bottom: 30px; left: 30px" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/2.mp4" type="video/mp4">
+							</video>
+
+						</div>
+
+						<div class="text-container fragment" data-fragment-index="7" style="position: absolute; top: -10px; right: 30px;">
+							<p style="font-size: 0.6em"><b style="color: deepskyblue">SE</b>a <b style="color: deepskyblue">A</b>ir, <b style="color: deepskyblue">L</b>and <b style="color: deepskyblue">S</b>imulator Design</p>
+						</div>
+
+						<div class="text-container fragment" data-fragment-index="8" style="position: absolute; top: 70px; right: 30px; width: 400px">
+							<p style="font-size: 0.6em">Compare: <br><br><br><b style="color: deepskyblue">Position-based Dynamics</b><br><br><br> and <br><br><br><b style="color: deeppink">Particle-based Dynamics</b></p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="9" style="position: fixed; top: 25px; left: -3px; ">
+							<video width="30%" style="position: fixed; bottom: 240px; right: 30px" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/AAM_SEAL_7.mp4" type="video/mp4">
+							</video>
+
+							<video width="30%" style="position: fixed; bottom: 30px; right: 30px" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/AAM_SEAL_8.mp4" type="video/mp4">
+							</video>
+
+						</div>
+
+
+
+					</section>
+
+					<section data-auto-animate="">
+						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/AAM_SEAL_1.png"
+							style="position:fixed; top: 10px; left: 450px; width: 350px;" />
+						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/AAM_SEAL_2.svg"
+							style="position:fixed; top: 80px; left: 610px; width: 30px;" />
+						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/AAM_SEAL_3.svg"
+							style="position:fixed; top: 150px; left: 178px; width: 450px;" />
+						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/AAM_SEAL_4.svg"
+							style="position:fixed; top: 150px; left: 623px; width: 450px;" />
+
+						<div class="text-container" style="position: absolute; top: -140px; left: 30px;">
+						<p style="font-size: 0.6em"><b style="color: deepskyblue">A</b>erial-<b style="color: deepskyblue">A</b>quatic, <b style="color: deepskyblue">M</b>anipulator Design</p>
+
+						</div>
+
+						<img class="noborder fragment" data-fragment-index="0" src="figures/AAM-SEALS/AAM_SEAL_robot.svg"
+							style="position:fixed; top: 260px; left: -30px; width: 590px;" />
+
+						<div class="text-container" style="position: absolute; top: -140px; right: 30px;">
+							<p style="font-size: 0.6em"><b style="color: deepskyblue">SE</b>a <b style="color: deepskyblue">A</b>ir, <b style="color: deepskyblue">L</b>and <b style="color: deepskyblue">S</b>imulator Design</p>
+						</div>
+
+
+						<img class="noborder fragment" data-fragment-index="1" src="figures/AAM-SEALS/AAM_SEAL_sim.svg"
+							style="position:fixed; top: 160px; right: -120px; width: 790px;" />
+
+					</section>
+
+					<section data-auto-animate data-background-color="black">
+						<div>
+							<video width="100%" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/media7.mp4" type="video/mp4">
+							</video>
+
+						</div>
+
+					</section>
+
+					<section data-auto-animate data-background-color="black">
+						<div style="position: fixed; top: 175px; left: -650px; ">
+							<video width="30%" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/media7.mp4" type="video/mp4">
+							</video>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="position: fixed; top: 75px; right: -200px; ">
+							<video width="75%" controls autoplay muted loop>
+								<source src="figures/AAM-SEALS/media6.mp4" type="video/mp4">
+							</video>
+
+						</div>
+
+					</section>
+
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>Future Directions</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left">Limitations:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Quantitatively <span class="lowercase-first-uppercase">evaluate the potential of Sim2Real transfer</span></h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Quantitatively <span class="lowercase-first-uppercase">evaluate the potential of Sim2Real transfer</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Quantitatively <span class="lowercase-first-uppercase">evaluate the potential of Sim2Real transfer</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">1. Use AAM-SEALS <span class="lowercase-first-uppercase">to help develop physical </span> AAMs (Another Ongoing Project)</h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Quantitatively <span class="lowercase-first-uppercase">evaluate the potential of Sim2Real transfer</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Use AAM-SEALS <span class="lowercase-first-uppercase">to help develop physical </span> AAMs (Another Ongoing Project)</h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">2. Introduce <span class="lowercase-first-uppercase">the influence of dying battery on motors, control, and planning in </span>AAM-SEALS</h5>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Future Directions</h2>
+						<h4 style="text-align: left; color: dimgrey; font-size: 0.8em">Limitations:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. The NatSGD Dataset's <span class="lowercase-first-uppercase">scope is confined to a singular kitchen environment</span></h5>
+						<h4 style="text-align: left">Opportunities:</h4>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">1. Use AAM-SEALS <span class="lowercase-first-uppercase">to help develop physical </span> AAMs (Another Ongoing Project)</h5>
+						<h5 style="text-align: left; color: dimgrey; font-size: 0.8em">2. Introduce <span class="lowercase-first-uppercase">the influence of dying battery on motors, control, and planning in </span>AAM-SEALS</h5>
+						<h5 class="animate__backInLeft" data-delay="200" style="text-align: left">3. Attach <span class="lowercase-first-uppercase">the 2nd manipulator and explore novel opportunities in </span>AAM-SEALS</h5>
+					</section>
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Thank You to My Faculty Collaborators!</h2>
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid smallcircles" style="display: flex; justify-content: space-around;">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" data-src="figures/job_talk/Yiannis.png" data-delay="800">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/Cornelia.png" data-delay="220">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/MiaoYu.png" data-delay="200">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" data-src="figures/job_talk/TianyiZhou.png" data-delay="180">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/FurongHuang.png" data-delay="160">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/MingLin.png" data-delay="140">
+
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Thank You to My Faculty Collaborators!</h2>
+						<div>
+							<div class="row fivegrid smallcircles" style="display: flex; justify-content: space-around;">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" data-src="figures/job_talk/Yiannis.png" data-delay="800">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/Cornelia.png" data-delay="220">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/MiaoYu.png" data-delay="200">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" data-src="figures/job_talk/TianyiZhou.png" data-delay="180">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/FurongHuang.png" data-delay="160">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/MingLin.png" data-delay="140">
+
+							</div>
+						</div>
+
+						<img class="demoimg smallcircle animate__shrinkIn fragment" data-fragment-index="0" style="width: auto;" src="figures/job_talk/line4.svg">
+
+
+						<div class="fragment" data-fragment-index="1">
+							<div class="row fivegrid smallcircles" style="display: flex; justify-content: space-around;">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" data-src="figures/job_talk/Snehesh.png" data-delay="800">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/Xiaomin.png" data-delay="220">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/Pavan.png" data-delay="200">
+								<img class="demoimg smallcircle animate__shrinkIn" style="height: 220px; width: auto;" src="figures/job_talk/Sanghyun.png" data-delay="200">
+
+							</div>
+						</div>
+
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="toptitle">Thank You to My Students!</h2>
+						<div class="fragment" data-fragment-index="0">
+							<div class="row fivegrid" style="display: flex; justify-content: space-around;">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" data-src="figures/job_talk/Saketh.png" data-delay="800">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/William.png" data-delay="220">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Karthikeya.png" data-delay="200">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" data-src="figures/job_talk/Rivado.png" data-delay="180">
+							</div>
+							<div class="row fivegrid smallcircles" style="display: flex; justify-content: space-around;">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Bomin.png" data-delay="160">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Tomer.png" data-delay="140">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Abhinav.png" data-delay="120">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Sri.png" data-delay="100">
+								<img class="animate__fadeInDown" style="height: 250px; width: auto;" src="figures/job_talk/Yash.png" data-delay="80">
+							</div>
+						</div>
+					</section>
+
+
+				</section>
+
+
+
+<!--				<section>-->
+<!--					<h2>Customizing Human-Robot Collaboration via Dynamics Foundation Models</h2>-->
+<!--				</section>-->
+
+<!--				<section>-->
+<!--					<h2 class="toptitle">Customizing Human-Robot Collaboration via Dynamics Foundation Models</h2>-->
+<!--				</section>-->
+
+<!--				<section>-->
+<!--					<h2>Advancing Robot Learning through Model-Based Self-Explanation Guidance</h2>-->
+<!--				</section>-->
+
+<!--				<section>-->
+<!--					<h2 class="toptitle">Advancing Robot Learning through Model-Based Self-Explanation Guidance</h2>-->
+<!--				</section>-->
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.0/reveal.min.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/menu/menu.js"></script>
+
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="plugin/d3js/d3js_v2.js"></script>
+
+<!--	    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<!--	    <script src="../plugin/diagram/revealjs-diagram-yantian-v4.js"></script>-->
+
+		<script src="plugin/reveal.js-d3/reveald3.js"></script>
+
+
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				customcontrols: {
+				controls: [
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				}
+				]
+				},
+
+  				chalkboard: { // font-awesome.min.css must be available
+					src: "chalkboard/chalkboard.json",
+					toggleChalkboardButton: { left: "80px" },
+					toggleNotesButton: { left: "130px" },
+//					theme: "whiteboard",
+//					background: [ 'rgba(127,127,127,.1)' , 'reveal.js-plugins/chalkboard/img/whiteboard.png' ],
+//					pen: [ 'reveal.js-plugins/chalkboard/img/boardmarker.png' , 'reveal.js-plugins/chalkboard/img/boardmarker.png' ],
+//				        color: [ 'rgba(0,0,255,1)', 'rgba(0,0,255,0.5)' ],
+//				        draw: [ (RevealChalkboard) ?  RevealChalkboard.drawWithPen : null , (RevealChalkboard) ? RevealChalkboard.drawWithPen : null ],
+				},
+				keyboard: {
+				    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle chalkboard when 'c' is pressed
+				    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+				    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+				     8: function() { RevealChalkboard.reset() },	// reset all chalkboard data when 'BACKSPACE' is pressed
+				    68: function() { RevealChalkboard.download() },	// downlad chalkboard drawing when 'd' is pressed
+					90: function() { Recorder.downloadZip(); }, 	// press 'z' to download zip containing audio files
+					84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files
+				},
+				hash: true,
+				// Options
+				width: 1280, // Set the width of the presentation
+				height: 720, // Set the height of the presentation
+				aspectRatio: 16/9, // Set the aspect ratio to 16:9
+				slideNumber: true,
+				controls: true,
+
+
+				// Charts
+				chart: {
+						defaults: {
+							color: 'black', // color of labels
+							scale: {
+								beginAtZero: true,
+<!--								ticks: { stepSize: 1 },-->
+								grid: { color: "lightgray" } , // color of grid lines
+							},
+						},
+						line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+						bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+						pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+					},
+<!--				menu: {-->
+<!--    themes: false,-->
+<!--    transitions: false,-->
+<!--    markers: true,-->
+<!--    hideMissingTitles: true-->
+<!--}-->
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChalkboard, RevealCustomControls, RevealLoadContent, RevealFullscreen, RevealMath.KaTeX, RevealMenu, RevealChart, Reveald3, Appearance, RevealAnimate ]
+			});
+
+		  // Add event listener for slide changes after initialization
+		  Reveal.addEventListener('ready', function(event) {
+			console.log('reveal.js initialized');
+
+			Reveal.addEventListener('slidechanged', function(event) {
+			  console.log('Slide changed event fired:', event);
+
+			  // Check if the current slide is the one where you want to refresh the browser
+			  if (event.indexh === 25 && event.indexv === 5) {
+				console.log('Refreshing browser');
+				// Refresh the browser
+				location.reload();
+			  }
+			});
+		  });
+
+		</script>
+
+<!--&lt;!&ndash; Add this script at the end of your HTML file, just before the closing </body> tag &ndash;&gt;-->
+<!--<script>-->
+<!--    // Function to preload the video-->
+<!--    function preloadVideo(videoElement) {-->
+<!--        if (videoElement.readyState === 4) {-->
+<!--            // Video is fully loaded, do nothing-->
+<!--            return;-->
+<!--        }-->
+
+<!--        // Start loading the video-->
+<!--        videoElement.load();-->
+<!--    }-->
+
+<!--    // Listen for Reveal.js initialization event-->
+<!--    Reveal.addEventListener('ready', function(event) {-->
+<!--        // Get the video element-->
+<!--        var videoElement = document.querySelector('video');-->
+
+<!--        // Preload the video-->
+<!--        preloadVideo(videoElement);-->
+<!--    });-->
+
+<!--    // Listen for slide change event-->
+<!--    Reveal.addEventListener('slidechanged', function(event) {-->
+<!--        // Get the video element in the current slide-->
+<!--        var videoElement = event.currentSlide.querySelector('video');-->
+
+<!--        // Preload the video-->
+<!--        preloadVideo(videoElement);-->
+<!--    });-->
+<!--</script>-->
+
+	</body>
+</html>
